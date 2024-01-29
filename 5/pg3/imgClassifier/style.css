@@ -1,0 +1,286 @@
+* {
+    font-family: 'Pretendard', sans-serif;
+    overflow: hidden;
+}
+
+p {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 0;
+    /* margin-top: 3vh; */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#ImgsContainer {
+    display: flex;
+    align-items: center;
+    gap: 5vw;
+}
+
+.imgContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: auto;
+    width: 45vw;
+    border: 1px solid #afafaf;
+    border-radius: 30px;
+    text-align: center;
+    margin: 10px;
+    gap: 2vh;
+    padding-bottom: 3vh;
+}
+
+.imgDisplay {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 50vh;
+    border: 1px solid #afafaf;
+    border-radius: 20px;
+}
+
+#submit {
+    /* margin-top: 5vh; */
+    width: 15vw;
+    height: 8vh;
+    border-radius: 10px;
+    border: none;
+    background-color: #2D82FA;
+    color: white;
+    font-size: 30px;
+}
+
+#submit:hover {
+    background-color: white;
+    color: #2D82FA;
+}
+
+.custom-file-input {
+    display: none; 
+}
+
+.custom-button {
+    background-color: white;
+    color: #5f5f5f;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+    /* margin-right: 20px; */
+    margin-right: 0;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+}
+
+#resultImage, #classifyingImage {
+    position: absolute;
+    bottom: 10%;
+}
+
+#btnContainer {
+    margin-top: 2vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    align-items: center;
+}
+
+#imageClassification {
+    font-size: 2vh;
+    text-align: center;
+}
+
+span {
+    text-align: center;
+    color: #5f5f5f;
+    line-height: 1.5;
+}
+
+#imgInfo {
+    text-align: center;
+    color: #5f5f5f;
+    margin: 0;
+}
+
+img {
+    max-width: 750px;
+    max-height: 440px;
+    border-radius: 10px;
+}
+
+select {
+    width: 100%;
+    height: 5vh;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+}
+
+select:focus {
+    outline: none;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    padding-top: 0px;
+    /* padding-bottom: 40px; */
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+    border-radius: 12px;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+#algoInfo {
+    margin-left: 5px;
+    background-color: #2D82FA;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    width: 30px;
+    text-align: center;
+}
+
+#algoInfo:hover {
+    background-color: white;
+    color: #2D82FA;
+}
+  
+
+/* 페이드 아웃 애니메이션 정의 */
+@keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  /* 페이드 아웃 클래스 설정 */
+  .fade-out {
+    animation: fadeOut 0.5s ease-in-out;
+    opacity: 0;
+  }
+
+  .imgContainerHeader{
+    display: flex;
+    flex-direction: column;
+    margin-top: 3vh;
+    align-items: center;
+    gap: 1vh;
+  }
+  
+
+.ImgBtn {
+    width: max-content;
+    height: 3vh;
+    border: none;
+    border-radius: 5px;
+    background-color: #2D82FA;
+    color: white;
+}
+
+.ImgBtn:hover {
+    background-color: #002073;
+    color: white;
+}
+
+/* 툴팁 슬라이드쇼 */
+.overlay-tip {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    width: auto;
+    height: 15vh;
+    margin: 10px; 
+    opacity: 0; 
+    animation: fadeIn 1s ease-out forwards; 
+    cursor: pointer; 
+    z-index: 2;
+  }
+  
+  #tip_1 {
+    position: absolute;
+    bottom: 25vh;
+    left: 50vw;
+    transform: translateX(-50%);
+  }
+  
+  #tip_2 {
+    position: absolute;
+    bottom: 25vh;
+    left: 50vw;
+    transform: translateX(-50%);
+  }
+  
+  #tip_3 {
+    position: absolute;
+    bottom: 25vh;
+    left: 50vw;
+    transform: translateX(-50%);
+  }
+  
+  #tip_4 {
+    position: absolute;
+    top: 10vh;
+    left: 50vw;
+    transform: translateX(-50%);
+  }
+  
+  #tip_5 {
+    position: absolute;
+    top: 10vh;
+    left: 50vw;
+    transform: translateX(-50%);
+  }
+  
+  @keyframes fadeIn {
+    from {
+        opacity: 0; 
+    }
+    to {
+        opacity: 1; 
+    }
+  }
+  
+  @keyframes fadeOut {
+    from {
+        opacity: 1; 
+    }
+    to {
+        opacity: 0; 
+    }
+  }

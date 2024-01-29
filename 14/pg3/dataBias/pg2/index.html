@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" />
+</head>
+<body>
+	<div id="container">
+		<div class="learning-feature">학습 특성: </div>
+		<div id="slider-container">
+			<div id="slides" />
+		</div>
+		<div id="indicators">
+			<span class="indicator" data-slide-to="0"></span>
+			<span class="indicator" data-slide-to="1"></span>
+			<span class="indicator" data-slide-to="2"></span>
+		</div>
+		<button id="next">다음 데이터 선택하기</button>
+	</div>
+
+	<img id="tip_2" class="overlay-tip" src="./imgs/tip_2.png" alt="Tip" onclick="fadeOutTip('tip_2')">
+	
+    <script src="script.js"></script>
+	<script src="slideshow.js"></script>
+</body>
+</html>

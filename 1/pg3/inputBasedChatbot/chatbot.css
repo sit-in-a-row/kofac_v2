@@ -1,0 +1,247 @@
+* {
+    font-family: 'Pretendard', sans-serif;
+}
+
+/* 공통 스타일 */
+body {
+    font-family: 'Pretendard', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* background-color: #696969; */
+    overflow-y: hidden;
+}
+
+/* 공통 입력 및 버튼 스타일 */
+input, button {
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+}
+
+input:focus {
+    outline: 1px solid #e0e0e0;
+}
+
+button {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #002073;
+}
+
+/* 채팅 및 규칙 폼 컨테이너 스타일 */
+.rule-form-container {
+    position: absolute;
+    display: grid;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    left: 2.5vw;
+    top: 91vh;
+    width: auto;
+}
+
+.chat-container {
+    position: absolute;
+    width: 25vw;
+    height: 90vh;
+    display: grid;
+    place-items: center;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    border: 1px solid #e0e0e0;
+    right: 1vw;
+}
+
+/* 입력 그룹 스타일 */
+.input-group, .input-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#inputRule, #responseRule {
+    width: 28vw;
+}
+
+#ruleButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    width: 5vw;
+    font-size: 2vh;
+}
+
+/* 채팅박스 스타일 */
+.chatbox {
+    height: 80vh;
+    width: 23vw;
+    overflow-y: scroll;
+    border: 1px solid #e0e0e0;
+    padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 수직 가운데 정렬 */
+}
+
+/* 메시지 스타일 */
+.user-message, .bot-message {
+    padding: 8px 12px;
+    margin: 5px 0;
+    border-radius: 5px;
+    max-width: 80%;
+}
+
+.user-message {
+    background-color: #e0f7fa;
+    align-self: flex-end;
+    margin-top: 0; /* 맨 위에 배치 */
+    margin-bottom: 5px;
+}
+
+.bot-message {
+    background-color: #e8eaf6;
+    align-self: flex-start;
+    margin-top: 0; /* 맨 위에 배치 */
+    margin-bottom: 5px;
+}
+
+/* 입력란과 보내기 버튼을 감싸는 래퍼 스타일 */
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    margin-top: 8px;
+    height: 30px; /* 높이 설정 */
+}
+
+/* 입력란 스타일 수정 */
+input#userInput {
+    width: calc(23vw - 50px); /* 전체 너비에서 버튼 너비를 제외 */
+    margin-right: 10px; /* 버튼과의 간격 */
+    height: 30px; /* 높이 설정 */
+}
+
+/* 보내기 버튼 스타일 수정 */
+.send-button button {
+    width: 40px; /* 버튼 너비 설정 */
+    height: 45px; /* 높이 설정 */
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.rules-table-container {
+    position: absolute;
+    left: 3vw;
+    top: 6vh;
+    height: 80vh; 
+    width: 65vw;
+    overflow-y: scroll;
+    background-color: #f0f0f0;
+    border-radius: 12px;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    border: 1px solid #e0e0e0;
+}
+
+/* 테이블 스타일 */
+#rulesTable {
+    border-collapse: collapse; /* 셀 경계 중복 제거 */
+    width: 100%; /* 컨테이너 너비에 맞춤 */
+    min-width: 500px; /* 최소 너비 설정 */
+}
+
+/* 테이블 헤더 스타일 */
+#rulesTable thead th {
+    background-color: #002073;
+    font-size: 28px;
+    color: white;
+    text-align: left;
+    padding: 15px;
+    padding-left: 20px;
+    border-bottom: 1px solid #ddd; /* 구분선 스타일 */
+}
+
+/* 테이블 셀 스타일 */
+#rulesTable td {
+    padding: 15px;
+    padding-right: 70px;
+    padding-left: 20px;
+    border-bottom: 1px solid #ddd; /* 구분선 스타일 */
+}
+
+/* 테이블 행 호버 스타일 */
+#rulesTable tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* 툴팁 슬라이드쇼 */
+.overlay-tip {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    width: auto;
+    height: 15vh;
+    margin: 10px; 
+    opacity: 0; 
+    animation: fadeIn 1s ease-out forwards; 
+    cursor: pointer; 
+    z-index: 2;
+  }
+  
+  #tip_1 {
+    position: absolute;
+    bottom: 10%;
+    left: 0;
+  }
+  
+  #tip_2 {
+    position: absolute;
+    bottom: 12%;
+    right: 1%;
+  }
+  
+  #tip_3 {
+    position: absolute;
+    top: 50vh;
+    left: 50vw;
+    transform: translateX(-50%);
+  }
+  
+  #tip_4 {
+    position: absolute;
+    top: 23%;
+    left: 0;
+  }
+  
+  #tip_5 {
+    position: absolute;
+    top: 16%;
+    right: 7%;
+  }
+  
+  @keyframes fadeIn {
+    from {
+        opacity: 0; 
+    }
+    to {
+        opacity: 1; 
+    }
+  }
+  
+  @keyframes fadeOut {
+    from {
+        opacity: 1; 
+    }
+    to {
+        opacity: 0; 
+    }
+  }

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>경로 찾기 및 미로 생성</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="public/styles.css">   
+    <style>
+        /* 툴팁 슬라이드쇼 */
+        .overlay-tip {
+            position: absolute;
+            bottom: 5%;
+            right: 5%;
+            width: auto;
+            height: 15vh;
+            margin: 10px; 
+            opacity: 0; 
+            animation: fadeIn 1s ease-out forwards; 
+            cursor: pointer; 
+            z-index: 2;
+        }
+
+        #tip_1 {
+            position: absolute;
+            top: 35%;
+            left: 2%;
+        }
+
+        #tip_2 {
+            position: absolute;
+            top: 14%;
+            left: 30%;
+            z-index: 10;
+        }
+
+        #tip_3 {
+            position: absolute;
+            top: 23%;
+            left: 30%;
+            z-index: 10;
+        }
+
+        #tip_4 {
+            position: absolute;
+            top: 31%;
+            left: 30%;
+            z-index: 10;
+        }
+
+        #tip_5 {
+            position: absolute;
+            top: 40%;
+            left: 30%;
+            z-index: 10;
+        }
+
+        @keyframes fadeIn {
+        from {
+            opacity: 0; 
+        }
+        to {
+            opacity: 1; 
+        }
+        }
+
+        @keyframes fadeOut {
+        from {
+            opacity: 1; 
+        }
+        to {
+            opacity: 0; 
+        }
+        }
+    </style> 
+</head>
+
+<body>
+
+    <!-- <script type="module" src="board.js"></script>
+ -->
+    <div class="btn-container" id="btn-container">
+        <span id="algoChoice">알고리즘 선택</span>
+        <button class="btn" id="bfs">너비 우선 탐색</button>
+        <button class="btn" id="dfs">깊이 우선 탐색</button>
+        <button class="btn" id="gbfs">탐욕적 최상 우선 탐색</button>
+        <button class="btn" id="astar">A* 탐색</button>
+    </div>
+    
+    <div class="func-container" id="func-container">
+        <span id="funcInfo">기능 선택</span>
+        <span id="sliderInfo">출력 속도 조절</span>
+        <div class="slider-container">
+            <input type="range" class="slider" id="animationSpeedSlider" min="20" max="800" value="20">
+            <span id="sliderValue">20ms</span>
+        </div>
+        
+        <div class="startAndPause-container">
+            <button class="btn" id="resume">재생</button>
+            <button class="btn" id="pause">정지</button>
+        </div>
+
+        <button class="btn" id="random-maze">랜덤 미로</button>
+        <button class="btn" id="clear-board">보드 지우기</button>
+        <button class="btn" id="clear-path">경로 지우기</button>
+        <button class="btn" id="start">준비중...</button>
+        
+        <span style="margin-top: 1vh;">분할 모드 활성화</span>
+
+        <label class="switch" id="toggleSwitch">
+            <input type="checkbox" id="checkbox">
+            <span class="slider"></span>
+        </label>  
+    </div>
+    
+    <div id="board"></div>
+
+    <div id="info-container">
+        <div id="nodesVisited" style="display: none;"></div>
+        <div id="time" style="display: none;"></div>
+    </div>
+    
+    <img id="tip_1" class="overlay-tip" src="./imgs/tip_1.png" alt="Tip" onclick="fadeOutTip('tip_1')">
+    <img id="tip_2" class="overlay-tip" src="./imgs/tip_2.png" alt="Tip" onclick="fadeOutTip('tip_2')">
+    <img id="tip_3" class="overlay-tip" src="./imgs/tip_3.png" alt="Tip" onclick="fadeOutTip('tip_3')">
+    <img id="tip_4" class="overlay-tip" src="./imgs/tip_4.png" alt="Tip" onclick="fadeOutTip('tip_4')">
+    <img id="tip_5" class="overlay-tip" src="./imgs/tip_5.png" alt="Tip" onclick="fadeOutTip('tip_5')">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="public/board.js"></script>
+    <script src="public/index.js"></script>
+
+    <script>
+        // 버튼 요소들을 선택
+        const buttons = document.querySelectorAll('#astar, #dijkstra, #bfs, #dfs, #gbfs, #resume, #pause');
+
+        // 각 버튼에 클릭 이벤트 리스너 추가
+        buttons.forEach(button => {
+            button.addEventListener('click', function() {
+                // 모든 버튼의 활성 클래스 제거
+                buttons.forEach(btn => btn.classList.remove('active'));
+
+                // 클릭된 버튼에 활성 클래스 추가
+                this.classList.add('active');
+            });
+        });
+
+        document.getElementById('checkbox').addEventListener('change', function() {
+            console.log('선택됨');
+            if(this.checked) {
+                window.location.href = '../../pg3.5/path_visualizer/div4.html';
+            }
+        });
+    </script>
+    <script src="slideshow.js"></script>
+
+</body>
+
+</html>

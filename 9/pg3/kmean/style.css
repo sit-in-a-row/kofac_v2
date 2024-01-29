@@ -1,0 +1,208 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* 화면 높이와 일치시키기 */
+  overflow: hidden; /* 스크롤바 제거 */
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  height: 100vh; /* 컨테이너의 높이를 화면 높이와 동일하게 설정 */
+  overflow: hidden; /* 여기서도 스크롤바 제거 */
+}
+
+.left-container {
+  flex: 1;
+}
+
+.right-container {
+  display: flex;
+  align-items: center; /* 수평 중앙 정렬 */
+  justify-content: center; /* 수직 중앙 정렬 */
+  flex: 1;
+  height: 100vh;
+  width: 40vw;
+  margin-right: 80px;
+}
+
+.input_K_control {
+  margin-top: 10vh;
+  margin-left: 80px;
+  font-family: 'Pretendard', sans-serif;
+  font-size: 4vh;
+  font-weight: bold;
+}
+
+#noOfKInput, #randomPointsRange {
+  width: 15vw;
+}
+
+.input_Rand_control {
+  margin-top: 3vh;
+  margin-left: 80px;
+  font-family: 'Pretendard', sans-serif;
+  font-size: 4vh;
+  font-weight: bold;
+}
+
+.centroid-container {
+    margin-top: 3vh;
+    margin-left: 80px;
+    font-family: 'Pretendard', sans-serif;
+    font-size: 4vh;
+    font-weight: bold;
+    display: flex;
+}
+
+.centroid-container input {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.container_control {
+  display: flex;
+  flex-direction: column; /* 세로 정렬 설정 */
+  gap: 1rem; /* 요소 간의 간격 설정 */
+  align-items: start; /* 좌측 정렬 */
+  justify-content: flex-end;
+  margin-top: 60px;
+  margin-left: 80px;
+}
+
+.title {
+  font-size: 6vh;
+  font-family: 'Pretendard', sans-serif;
+  margin-left: 80px;
+}
+
+.btn {
+  width: 30vw;
+  height: 7vh;
+  font-size: 4vh;
+  font-family: 'Pretendard', sans-serif;
+  border-radius: 10px;
+  border: none;
+}
+
+#randomButton {
+  background-color: #2D82FA;
+  color: white;
+}
+
+#resetButton {
+  background-color: #002073;
+  color: white;
+}
+
+#stepButton {
+  background-color: #585ABC;
+  color: white;
+}
+
+#startButton {
+  background-color: black;
+  color: white;
+}
+
+#randomButton:hover {
+  background-color: #205aac;
+  color: white;
+}
+
+#resetButton:hover {
+  background-color: #000f35;
+  color: white;
+}
+
+#stepButton:hover {
+  background-color: rgb(57, 59, 129);
+  color: white;
+}
+
+#startButton:hover {
+  background-color: #2c2c2c;
+  color: white;
+}
+
+#canvas_container {
+  /* box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2); */
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+}
+
+@media (max-width: 560px) {
+  .container {
+    flex-direction: column;
+  }
+  .left-container,
+  .right-container {
+    width: 100%;
+    height: auto; /* 모바일 화면에서는 높이를 자동으로 조절 */
+  }
+}
+
+/* 툴팁 슬라이드쇼 */
+.overlay-tip {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  width: auto;
+  height: 15vh;
+  margin: 10px; 
+  opacity: 0; 
+  animation: fadeIn 1s ease-out forwards; 
+  cursor: pointer; 
+  z-index: 2;
+}
+
+#tip_1 {
+  position: absolute;
+  bottom: 29%;
+  left: 37%;
+}
+
+#tip_2 {
+  position: absolute;
+  bottom: 20%;
+  left: 37%;
+}
+
+#tip_3 {
+  position: absolute;
+  bottom: 11%;
+  left: 37%;
+}
+
+#tip_4 {
+  position: absolute;
+  bottom: 2%;
+  left: 37%;
+}
+
+#tip_5 {
+  position: absolute;
+  top: 38%;
+  left: 37%;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0; 
+  }
+  to {
+      opacity: 1; 
+  }
+}
+
+@keyframes fadeOut {
+  from {
+      opacity: 1; 
+  }
+  to {
+      opacity: 0; 
+  }
+}

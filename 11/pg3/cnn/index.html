@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+      <title>
+            CNN 실습
+      </title>
+
+      <link rel="stylesheet" href="mdl/icons.css" />
+      <link rel="stylesheet" href="mdl/material.red-indigo.min.css" />
+      <link rel="stylesheet" href="style.css" />
+      <link rel="stylesheet" href="styles.css" />
+
+</head>
+
+<body>
+      <div id="globalContainer">
+            <div class="container" id="leftContainer">
+                  <div id="settings">
+                        <div id="settingsContainer">
+                              <div id="kernel-vis"></div>
+                              <input oninput="set_filter();" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="repeat-filter" style="display: none;">
+                        </div>
+                        <div>
+                              <h3 id="kernel-weight-label">가중치 수정하기</h3>
+                              <div style="display: flex; gap: 1vw;">
+                                    <h5 id="kernel-name"></h5>
+                                    <!-- <h5 id="kernel-weight-position"></h5> -->
+                              </div>
+                              <div class="mdl-textfield mdl-js-textfield" id="kernel-weight-container">
+                                    <input oninput="set_weightAndClear();" type="text" id="kernel-weight" onclick="selectAllText()" onfocus="selectAllText()">
+                                    <label class="mdl-textfield__label" for="kernel-weight">가중치</label>
+                                    <span class="mdl-textfield__error">숫자를 입력해주세요</span>
+                              </div>                                                         
+                        </div>
+                  </div>
+            </div>
+            <!-- Canvases to display images on -->
+            <div class="container" id="rightContainer">
+                  <div id="canvases">
+                        <div id="input-canvas">
+                              <!-- Unfiltered input image -->
+                              <canvas id="input"></canvas>
+                        </div>
+
+                        <div id="output-canvas">
+                              <!-- Output image with convolutional filter applied -->
+                              <canvas id="output"></canvas>
+                        </div>
+                  </div>
+                  <div id="rightConSecondRow">
+                        <div style="display: flex; flex-direction: column;">
+                              <h4> 해상도 조절하기 </h4>
+                              <input  type="range" min="8" max="200" value="50" tabindex="0" onchange="set_resolution(set_filter);" id="resolution">
+                              <p id="resolution-display">해상도</p>
+                        </div>
+
+                        <!-- <label for="filter-select">Select a Filter:</label> -->
+                        <select id="filter-select">
+                        <option value="None">적용할 필터를 선택하세요</option>
+                        </select>
+                        <div id="kernel-info"></div>
+                  </div>
+
+                  <!-- Image upload button -->
+                  <div id="btnContainer">
+                        <input type="file" onchange="read_file();" id="load-image-upload">
+                        <button onclick="document.getElementById('load-image-upload').click();" id="load-image-upload-button">
+                              이미지 업로드하기
+                        </button>
+                        <span id="imgInfo">
+                              .png, .jpg 파일을 권장합니다.
+                              <br>
+                              5MB 이하의 이미지만 업로드해주세요.
+                        </span>
+                  </div>
+            </div>
+            <img id="tip_1" class="overlay-tip" src="./imgs/tip_1.png" alt="Tip" onclick="fadeOutTip('tip_1')">
+            <img id="tip_2" class="overlay-tip" src="./imgs/tip_2.png" alt="Tip" onclick="fadeOutTip('tip_2')">
+            <img id="tip_3" class="overlay-tip" src="./imgs/tip_3.png" alt="Tip" onclick="fadeOutTip('tip_3')">
+            <img id="tip_4" class="overlay-tip" src="./imgs/tip_4.png" alt="Tip" onclick="fadeOutTip('tip_4')">
+            <img id="tip_5" class="overlay-tip" src="./imgs/tip_5.png" alt="Tip" onclick="fadeOutTip('tip_5')">
+      </div>
+
+      <!-- Load JavaScript -->
+      <script defer src="js/jquery-3.3.1.min.js"></script>
+      <script defer src="js/download.js"></script>
+      <script defer src="mdl/material.js"></script>
+      <script defer src="js/kernels.js"></script>
+      <script defer src="js/canvas.js"></script>
+      <script defer src="js/utilities.js"></script>
+      <script defer src="js/variables.js"></script>
+      <script defer src="js/import-export.js"></script>
+      <script defer src="js/script.js"></script>
+      <script defer src="js/setup.js"></script>
+      <script src="slideshow.js"></script>
+</body>
+
+</html>

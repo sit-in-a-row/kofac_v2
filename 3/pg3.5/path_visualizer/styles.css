@@ -1,0 +1,193 @@
+* {
+    overflow: hidden;
+    font-family: 'Pretendard', sans-serif;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #20232C;
+}
+
+body {
+    display: flex;
+}
+
+#img3 {
+    border-radius: 12px;
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    display: block;
+}
+
+#btn-container, #func-container {
+    position: absolute;
+    top: 3%;
+    padding: 10px;
+    width: 12%;
+    border-radius: 5px;
+    /* background-color: #f0f0f0; */
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#btn-container { left: 1%; }
+#func-container { right: 1%; }
+
+/* 슬라이더 관련 스타일 */
+
+.slider-container {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.slider {
+    flex: 1; 
+}
+
+#sliderValue {
+    font-size: 1.5vh;
+    font-family: 'Pretendard', sans-serif;
+    margin-left: 10px; 
+}
+
+#funcInfo {
+    font-size: 2.5vh;
+    font-family: 'Pretendard', sans-serif;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#sliderInfo {
+    font-size: 2vh;
+    font-family: 'Pretendard', sans-serif;
+}
+
+/* 슬라이더 관련 스타일 */
+/* 재생 일시정지 관련 스타일 */
+.startAndPause-container {
+    display: flex; /* 버튼을 가로로 나란히 배치하도록 설정 */
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+/* 재생 일시정지 관련 스타일 */
+
+/* 버튼 관련 스타일 */
+.btn {
+    position: relative;
+    padding: 10px;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 8%;
+    text-align: center;
+    z-index: 5;
+    font-size: 2vh;
+    font-weight: bold;
+    font-family: 'Pretendard', sans-serif;
+    line-height: 100%;
+    width: 100%;
+    color: #929292;
+    background-color: white;
+}
+
+#clear-board { top: 10%; background-color: #FD2626; color: #ffffff; margin: 3px 0;}
+#clear-path { top: 30%; background-color: #FD2626; color: #ffffff; margin: 3px 0;}
+#random-maze { top: 50%; background-color: #FDCE21; color: #ffffff; margin: 3px 0;}
+#start { top: 70%; background-color: #00D424; color: #ffffff; margin: 3px 0;}
+#clear-board:hover { top: 10%; background-color: #bb1d1d; color: #ffffff; margin: 3px 0;}
+#clear-path:hover { top: 30%; background-color: #bb1d1d; color: #ffffff; margin: 3px 0;}
+#random-maze:hover { top: 50%; background-color: #c09c18; color: #ffffff; margin: 3px 0;}
+#start:hover { top: 70%; background-color: #018817; color: #ffffff; margin: 3px 0;}
+
+/* 버튼 관련 스타일 */
+
+/* 토글 관련 스타일 */
+
+#toggleSwitch {
+    position: relative;
+    display: inline-block;
+    width: 7vh;
+    height: 4vh;
+    margin-top: 1vh;
+  }
+  
+  #toggleSwitch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  #toggleSwitch .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 7vh;
+  }
+  
+  #toggleSwitch .slider:before {
+    position: absolute;
+    content: "";
+    height: 3vh;
+    width: 3vh;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+  }
+  
+  #toggleSwitch input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  #toggleSwitch input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  #toggleSwitch input:checked + .slider:before {
+    transform: translateX(3vh);
+  }
+
+  /* 토글 관련 스타일 */
+
+#iframeContainer {
+  position: absolute;
+  top: 60%;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  width: 1500px; 
+  height: 800px; 
+  border: none;
+  border-radius: 12px;
+  z-index: 1;
+}
+
+.row {
+    display: flex;
+    width: 100%;
+    height: 45%;
+}
+
+.innerIframe {
+    border: none;
+    position: relative;
+    width: 40%;
+    height: 100%;
+}

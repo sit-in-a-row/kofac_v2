@@ -1,0 +1,212 @@
+* {
+  overflow: hidden;
+  font-family: 'Pretendard', sans-serif;
+}
+
+#canvas_container {
+  position: absolute;
+  top: 50%;
+  left: 55%;
+  transform: translateY(-50%);
+  /* border: 3px solid black; */
+}
+
+/* 전체 ui 컨테이너 */
+
+.uiContainer {
+  position: fixed; /* Change absolute to relative */
+  width: 50vw;
+  padding-top: 100vh; /* Use padding instead of top for spacing */
+  left: 0;
+}
+
+.title{
+  position: absolute;
+  top: 2vh;
+  left: calc(4vw);
+  font-size: 6vh;
+}
+
+/* n개의 가장 가까운 노드 */
+
+.noOfNearestPoints {
+  position: absolute;
+  bottom: 55vh;
+  left: calc(4vw);
+  display: flex; 
+  align-items: center; 
+  font-size: 3vh;
+  color: grey;
+}
+
+
+#noOfNearestPoints {
+  position: relative;
+}
+
+#noOfNearestPointsText {
+  position: relative;
+  margin-right: 10px;
+}
+
+#nearestPoints {
+  position: relative;
+  margin-right: 20px;
+}
+
+/* 분류된 군집의 색깔 */
+
+.classifiedLabel {
+  position: absolute;
+  bottom: 42vh;
+  left: calc(4vw);
+  display: flex; 
+  align-items: center; 
+  margin-bottom: 1vh;
+}
+
+#classifiedLabelText {
+  font-size: 4vh;
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+#classifiedLabelColor {
+  width: 28.4vw;
+  height: 5vh;
+  border-radius: 50px;
+  /* border: 3px solid black; */
+  margin-right: 20px;
+}
+
+/* 텍스트 컨테이너 */
+.textContainer,
+.inputContainer,
+.noOfContainer {
+  position: absolute;
+  bottom: 18vh;
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+}
+
+.textContainer {
+  left: 4vw;
+}
+
+.inputContainer {
+  left: 24vw; /* Adjust for the text container's width and margin */
+}
+
+.noOfContainer {
+  left: 41vw;
+}
+
+#noOfLabelInputText,
+#noOfKInputText,
+#noOfDataPointText {
+  font-size: 4vh;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* 입력 컨테이너 */
+#noOfLabelInput,
+#noOfKInput,
+#noOfDataPointInput {
+  margin-bottom: 20px;
+  width: 15vw;
+  height: 4.5vh;
+}
+
+#noOfLabel,
+#noOfK,
+#noOfDataPoint {
+  font-size: 4vh;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* 랜덤 버튼 */
+
+#randomButton {
+  position: absolute;
+  bottom: 8vh;
+  left: 14vw;
+  width: 20vw;
+  height: 7vh;
+  background-color: #2D82FA;
+  border-radius: 10px;
+  border: none;
+  color: white;
+  font-size: 4vh;
+  transition: background-color 0.1s; 
+  font-family: 'Pretendard', sans-serif;
+}
+
+#randomButton:hover {
+  background-color: #002073; 
+  color: white;
+}
+
+/* 툴팁 슬라이드쇼 */
+.overlay-tip {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  width: auto;
+  height: 15vh;
+  margin: 10px; 
+  opacity: 0; 
+  animation: fadeIn 1s ease-out forwards; 
+  cursor: pointer; 
+  z-index: 20;
+}
+
+#tip_1 {
+  position: absolute;
+  bottom: 60%;
+  left: 28%;
+}
+
+#tip_2 {
+  position: absolute;
+  top: 60%;
+  left: 5%;
+}
+
+#tip_3 {
+  position: absolute;
+  bottom: 10%;
+  left: 0;
+}
+
+#tip_4 {
+  position: absolute;
+  top: 23%;
+  left: 0;
+}
+
+#tip_5 {
+  position: absolute;
+  top: 16%;
+  right: 7%;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0; 
+  }
+  to {
+      opacity: 1; 
+  }
+}
+
+@keyframes fadeOut {
+  from {
+      opacity: 1; 
+  }
+  to {
+      opacity: 0; 
+  }
+}

@@ -1,0 +1,503 @@
+* {
+    font-family: 'Pretendard', sans-serif;
+}
+
+/* style.css */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    bottom: 0;
+    position: relative;
+    overflow: hidden;
+    background-color: #20232C;
+}
+
+h2 {
+    margin: 0;
+    margin-bottom: 10px;
+}
+
+h3 {
+    margin-bottom: 30px;
+    width: 50vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#machineContainer {
+    position: relative; /* 기준 위치 설정 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#background {
+    width: 1500px;
+    height: 800px;
+    z-index: -1;
+    /* border: 1px solid #ccc; */
+    margin: 20px;
+    margin-bottom: 0;
+    position: relative; /* 배경 이미지에도 위치 속성 추가 */
+}
+
+#btnContainer {
+    bottom: 8vh;
+    position: absolute;
+    display: flex;
+    /* flex-direction: column; */
+    /* gap: 10vw; */
+    background-color: rgba(210, 210, 210, 0.5);
+    /* width: 73.5vw; */
+    justify-content: center;
+    align-items: center;
+    /* height: 7.2vh; */
+    margin: 0;
+    /* margin-top: 5px; */
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#choice1Btn {
+    margin-right: 240px;
+    margin-left: 15px;
+}
+
+#choice2Btn {
+    margin-left: 240px;
+    margin-right: 15px;
+}
+
+.choiceBtn {
+    width: 100px;
+    height: 40px;
+    background-color: #2D82FA;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 2.5vh;
+}
+
+.choiceBtn:hover {
+    background-color: #1d56a7;
+    color: white;
+}
+
+#submit {
+    width: 200px;
+    background-color: #002073;
+    color: white;
+}
+
+#submit:hover {
+    background-color: #000d2e;
+    color: white;
+}
+
+.infoBtn {
+    width: 30px;
+    height: 30px;
+    border-radius: 20px;
+    background-color: #2D82FA;
+    color: white;
+    border: none;
+}
+
+.infoBtn:hover {
+    background-color: white;
+    color: #2D82FA;
+}
+
+#moreImage, #doneImage {
+    position: absolute;
+    width: auto;
+    height: 25vh;
+    z-index: 10;
+    bottom: 10vh;
+}
+
+#charImgContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 25vw;
+    height: 45vh;
+    border: solid 2px #D9D9D9;
+    border-radius: 12px;
+}
+
+.mostImg {
+    margin: 10px;
+}
+
+/* 모달 창 숨기기 */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 5;
+}
+
+/* 모달 내용 스타일링 */
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    /* width: auto;
+    max-width:500px; */
+    width: max-content;
+    position: relative;
+    z-index: 5;
+    border-radius: 12px;
+}
+
+/* 모달 내용 스타일링 */
+.modal-content-submit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    height: 80%;
+    width: 80%;
+    max-width: 1500px;
+    position: fixed;
+    top: 30%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); /* 모달을 수평 및 수직으로 중앙에 정렬 */
+    z-index: 5;
+    overflow: auto;
+    border-radius: 12px;
+}
+
+#mostCharContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5vw;
+}
+
+#submitModalOutput {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5vh;
+}
+
+.result {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.barContainer {
+    display: flex;
+    justify-content: space-between;
+}
+
+.indexImg {
+    width: 80px;
+    height: 80px;
+}
+
+.infoText-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.infoText-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.bar-container {
+    width: 800px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    margin: 10px 0;
+    height: 50px;
+    text-align: center;
+    color: white;
+    margin-left: 30px;
+    margin-right: 30px;
+    position: relative; /* 부모 위치 기준으로 자식을 배치하기 위해 추가 */
+}
+
+.bar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 50px;
+    background-color: #76a9ea;
+    border-radius: 5px;
+    text-align: left;
+    padding-right: 5px;
+    color: white;
+}
+
+.selected-percent {
+    margin-left: 10px;
+}
+
+/* remaining-percent를 우측 상단에 배치 */
+.remaining-percent {
+    position: absolute;
+    right: 0;
+    padding: 5px;
+    background-color: #e0e0e0;
+    color: #333;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.infoRow {
+    width: 1200px;
+}
+
+/* 모달 닫기 버튼 스타일링 */
+.close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 5;
+}
+  
+/* 상황 에셋 위치 관련 */
+
+.trafficLight {
+    position: absolute;
+}
+
+#trafficLight_1 {
+    left: 4%;
+    bottom: 14%;
+}
+
+#trafficLight_2 {
+    left: 54%;
+    bottom: 14%;
+}
+
+.PassengerChar {
+    width: 50px; /* 고정 너비 */
+    height: 50px; /* 고정 높이 */
+    position: absolute;
+}
+
+.PedestrianChar {
+    position: absolute;
+}
+
+/* choice1 */
+
+#passenger1_1 {
+    bottom: 86.1%; 
+    left: 11.4%;
+}
+
+#passenger2_1 {
+    bottom: 86.1%;
+    left: 14.5%;
+}
+
+#passenger3_1 {
+    bottom: 86.1%;
+    left: 17.7%;
+}
+
+#passenger4_1 {
+    bottom: 77.9%;
+    left: 11.35%;
+    z-index: 2; 
+}
+
+#passenger5_1 {
+    bottom: 77.9%;
+    left: 17.25%;
+    z-index: 2; 
+}
+
+/* choice2 */
+
+#passenger1_2 {
+    bottom: 86.1%; 
+    right: 35.25%;
+}
+
+#passenger2_2 {
+    bottom: 86.1%;
+    right: 32.15%;
+}
+
+#passenger3_2 {
+    bottom: 86.1%;
+    right: 29.05%;
+}
+
+#passenger4_2 {
+    bottom: 77.9%;
+    right: 35.25%;
+    z-index: 2; 
+}
+
+#passenger5_2 {
+    bottom: 77.9%;
+    right: 29.35%;
+    z-index: 2; 
+}
+
+/* 보행자 */
+
+#PedestrianContainer {
+    /* position: relative; */
+    width: auto;
+    height: 5%;
+}
+
+/* choice1 */
+
+#pedestrian1_1 {
+    bottom: 13%;
+    left: 5%;
+    z-index: 3;
+}
+
+#pedestrian2_1 {
+    bottom: 13%;
+    left: 9%;
+}
+
+#pedestrian3_1 {
+    bottom: 13%;
+    left: 13%;
+}
+
+#pedestrian4_1 {
+    bottom: 13%;
+    left: 17%;
+}
+
+#pedestrian5_1 {
+    bottom: 13%;
+    left: 21%;
+}
+
+/* choice2 */
+
+#pedestrian1_2 {
+    bottom: 13%;
+    /* right: 39.2%; */
+    left: 55%;
+}
+
+#pedestrian2_2 {
+    bottom: 13%;
+    left: 59%;
+}
+
+#pedestrian3_2 {
+    bottom: 13%;
+    left: 63%;
+}
+
+#pedestrian4_2 {
+    bottom: 13%;
+    left: 67%;
+}
+
+#pedestrian5_2 {
+    bottom: 13%;
+    left: 71%;
+}
+
+/* 툴팁 슬라이드쇼 */
+.overlay-tip {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    width: auto;
+    height: 12vh;
+    margin: 10px; 
+    opacity: 0; 
+    animation: fadeIn 1s ease-out forwards; 
+    cursor: pointer; 
+    z-index: 2;
+  }
+  
+  #tip_1 {
+    position: absolute;
+    height: 25vh;
+    width: auto;
+    bottom: 34%;
+    left: 50vw;
+    transform: translateX(-50%);
+  }
+  
+  #tip_2 {
+    position: absolute;
+    height: 20vh;
+    width: auto;
+    bottom: 25%;
+    left: 50vw;
+    transform: translateX(-50%);
+  }
+  
+  #tip_3 {
+    position: absolute;
+    height: 20vh;
+    width: auto;
+    bottom: 25%;
+    left: 50vw;
+    transform: translateX(-50%);
+  }
+  
+  #tip_4 {
+    position: absolute;
+    height: 20vh;
+    width: auto;
+    bottom: 25%;
+    left: 50vw;
+    transform: translateX(-50%);
+  }
+  
+  #tip_5 {
+    position: absolute;
+    top: 16%;
+    right: 7%;
+  }
+  
+  @keyframes fadeIn {
+    from {
+        opacity: 0; 
+    }
+    to {
+        opacity: 1; 
+    }
+  }
+  
+  @keyframes fadeOut {
+    from {
+        opacity: 1; 
+    }
+    to {
+        opacity: 0; 
+    }
+  }

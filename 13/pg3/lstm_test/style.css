@@ -1,0 +1,352 @@
+* {
+	margin: 0;
+	font-family: 'Pretendard', sans-serif;
+	overflow: hidden;
+}
+
+body {
+	/* background-color: #e0e0e0; */
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+button {
+	background-color: #002073;
+	color: white;
+	border: none;
+	border-radius: 10px;
+	height: 30px;
+	margin-bottom: 20px;
+	margin: 5px;
+	width: 7vw;
+}
+
+button:hover {
+	background-color: #2D82FA;
+	color: white;
+}
+
+.container {
+	/* background-color: #e0e0e0; */
+	margin: 10px 0;
+	border-radius: 10px;
+	/* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); */
+}
+
+#csvContainer {
+	display: flex;
+	flex-direction: column;
+    /* background-color: #e0e0e0; */
+	/* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); */
+	border: 1px solid #e0e0e0;
+	margin-left: 10px;
+	height: calc(100vh - 20px);
+	width: 30vw;
+	align-items: center;
+}
+
+#csv-data {
+	margin: 10px;
+	height: 100%;
+	width: calc(30vw - 20px);
+	background-color: white;
+    overflow-x: hidden;
+    overflow-y: auto;
+	/* box-shadow: inset 0px 0px 7px 3px rgba(0, 0, 0, 0.2) */
+	/* border: 1px solid #e0e0e0; */
+}
+
+#startButton {
+	height: calc(12vh - 50px);
+	width: 100px;
+}
+
+#graphsContainer {
+	display: flex;
+	/* background-color: grey; */
+	/* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); */
+	border: 1px solid #e0e0e0;
+	border-radius: 10px;
+	height: 30vh;
+	width: calc(70vw - 50px);
+	margin-left: 10px;
+	gap: 10px;
+	justify-content: space-evenly;
+	padding: 0 10px 0;
+}
+
+#containerBottomBar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+#loadCSV {
+    width: max-content;
+    height: max-content;
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
+    border-radius: 7px;
+    background-color: #2D82FA;
+    color: white;
+}
+
+#loadCSV:hover {
+    background-color: #002073;
+    color: white;    
+}
+
+p {
+	font-size: 18px;
+	font-weight: bold;
+	/* margin: 0 10px 10px; */
+	margin-top: 5px;
+	margin-bottom: 5px;
+	height: 30px;
+	color: black;
+	z-index: 3;
+}
+
+.subContainer {
+	display: flex;
+	flex-direction: column;
+	width: 90%;
+	align-items: center;
+}
+
+.subGraph {
+	background-color: white;
+	width: 100%;
+	height: 90%;	
+	margin-bottom: 10px;
+	/* box-shadow: inset 0px 0px 10px 3px rgba(0, 0, 0, 0.2); */
+	border: 1px solid #e0e0e0;
+	padding: 10px;
+	border-radius: 10px;
+}
+
+#logs {
+	background-color: white;
+	width: 90%;
+	height: 80%;	
+	margin-bottom: 10px;
+	/* box-shadow: inset 0px 0px 10px 3px rgba(0, 0, 0, 0.1); */
+	border: 1px solid #e0e0e0;
+	padding: 10px;
+	border-radius: 10px;
+	overflow-y: auto;
+}
+
+#valResultContainer {
+	width: calc(70vw - 50px);
+	height: 65%;
+	/* background-color: grey; */
+	/* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); */
+	border: 1px solid #e0e0e0;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+    margin-left: 10px;
+    margin-bottom: 0;
+    
+    padding: 10px;
+	padding-top: 0;
+}
+
+#valResultGraph {
+	/* width: calc(100% - 30px); */
+    width: 100%;
+	height: auto;
+	background-color: white;
+	/* box-shadow: inset 0px 0px 10px 3px rgba(0, 0, 0, 0.2); */
+	border: 1px solid #e0e0e0;
+	border-radius: 10px;
+	/* margin: 10px 0 0 0; */
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 3;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); /* 화면 가운데 정렬 */
+    width: 100vw; /* 고정 너비 */
+    height: 100vh; /* 고정 높이 */
+    overflow: auto;
+    /* background-color: rgba(0,0,0,0.8); */
+}
+
+/* 모달 콘텐츠 스타일 */
+.modal-content {
+    display: flex;
+    flex-direction: column;
+    background-color: #fefefe;
+    position: absolute; /* position을 absolute로 설정합니다. */
+    top: 50%; /* 화면 상단에서 50%로 이동 */
+    left: 50%; /* 화면 왼쪽에서 50%로 이동 */
+    transform: translate(-50%, -50%); /* 화면 가운데 정렬 */
+    height: 550px;
+    margin: 0 auto; /* 좌우 중앙 정렬을 위해 margin을 0 auto로 설정합니다. */
+    padding: 20px;
+    border: 1px solid #888;
+    align-items: center; /* 내용 가운데 정렬 (flex 사용 시) */
+}
+
+.overlay-tip {
+    position: absolute;
+    left: 0;
+	bottom: 8%;
+    width: 40%;
+    height: auto;
+    margin: 10px; 
+    opacity: 0; 
+    animation: fadeIn 1s ease-out forwards; 
+    cursor: pointer; 
+}
+
+#panZoom, #reset {
+	height: 10vh;
+	width: auto;
+	z-index: 10;
+	display: block;
+    bottom: 30%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#checking {
+	height: 30vh;
+	width: auto;
+	z-index: 10;
+	bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0; 
+    }
+    to {
+        opacity: 1; 
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1; 
+    }
+    to {
+        opacity: 0; 
+    }
+}
+
+table {
+	border: none;
+	border-collapse: collapse;
+	border-radius: 10px;
+}
+
+
+
+thead th {
+    background-color: #007bff;
+    /* font-size: 28px; */
+    color: white;
+    text-align: center;
+    padding: 10px;
+    /* padding-left: 0px; */
+	border: none;
+    border-bottom: 1px solid #ddd; /* 구분선 스타일 */
+}
+
+#rulesTable td {
+    padding: 15px;
+    padding-right: 70px;
+    padding-left: 20px;
+	border: none;
+    border-bottom: 1px solid #ddd; 
+}
+
+#rulesTable tr:hover {
+    background-color: #f5f5f5;
+}
+
+input {
+	border: none;
+	margin-top: 7%;
+	margin-bottom: 7%;
+}
+
+input:focus {
+	border: none;
+	outline: none;
+}
+
+/* 툴팁 슬라이드쇼 */
+.overlay-tip2 {
+	position: absolute;
+	bottom: 5%;
+	right: 5%;
+	width: auto;
+	height: 15vh;
+	margin: 10px; 
+	opacity: 0; 
+	animation: fadeIn 1s ease-out forwards; 
+	cursor: pointer; 
+	z-index: 2;
+  }
+  
+  #tip_1 {
+	position: absolute;
+    bottom: 36%;
+    left: 0;
+    height: 60vh;
+    width: auto;
+  }
+  
+  #tip_2 {
+    position: absolute;
+    top: 55%;
+    left: 0%;
+  }
+  
+  #tip_3 {
+    position: absolute;
+    top: 55%;
+    left: 0%;
+  }
+  
+  #tip_4 {
+    position: absolute;
+    top: 15%;
+    left: 25%;
+  }
+  
+  #tip_5 {
+    position: absolute;
+    bottom: 8%;
+    right: 12%;
+  }
+  
+  @keyframes fadeIn {
+	from {
+		opacity: 0; 
+	}
+	to {
+		opacity: 1; 
+	}
+  }
+  
+  @keyframes fadeOut {
+	from {
+		opacity: 1; 
+	}
+	to {
+		opacity: 0; 
+	}
+  }

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>딥러닝2 - STT/TTS</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="styles.css"> 
+</head>
+<body>
+    <!-- <h2>딥러닝2 - STT/TTS</h2> -->
+
+    <div class="container">
+        <!-- STT Section -->
+        <div class="funcContainer" id="STT-box">
+            <div style="display: flex; align-items: center; justify-content: space-between;">
+                <span id="h3">음성 인식 (STT)</span>
+                <button id="reset"  onclick="location.reload()">초기화</button>
+            </div>
+            <div id="sentence-box">
+                <p id="quiz">게임 시작하기</p>
+                <p id="stt-result">음성 인식 결과가 여기에 표시됩니다...</p>
+                <p id="answer-result"></p>
+            </div>
+
+            <div id="input-box">
+                <button id="start-stt">듣기 시작</button>
+                <button id="stop-stt">듣기 중지</button>
+                <p id="scoreCorrect">맞춘 개수: </p>
+                <p id="scoreWrong">틀린 개수: </p>
+                <button id="game-start">문제 풀기</button>
+            </div>
+        </div>
+        
+        <div class="funcContainer" id="STT-box">
+            <!-- TTS Section -->
+            <div>
+                <div style="display: flex;">
+                    <span id="h3">텍스트 음성 변환 (TTS)</span>
+                    <select id="voice-select"></select> 
+                </div>
+                
+                <div id="wordButton-box">
+                    <button class="wordButton" id="word1">포카</button>
+                    <button class="wordButton" id="word2">스불재</button>
+                    <button class="wordButton" id="word3">꾸안꾸</button>
+                    <button class="wordButton" id="word4">이왜진</button>
+                    <button class="wordButton" id="word5">좋댓구알</button>
+                    <button class="wordButton" id="word6">말또서</button>
+                    <button class="wordButton" id="word7">까방권</button>
+                </div>
+                <div id="input-box">
+                    <input type="text" id="tts-input" placeholder="말하고 싶은 텍스트를 입력하세요">
+                    <button id="start-tts">말하기</button>
+                </div>
+                <!-- <button id="stop-tts" disabled>중지하기</button> -->
+            </div>
+
+            <img id="tip_1" class="overlay-tip" src="./imgs/tip_1.png" alt="Tip" onclick="fadeOutTip('tip_1')">
+            <img id="tip_2" class="overlay-tip" src="./imgs/tip_2.png" alt="Tip" onclick="fadeOutTip('tip_2')">
+            <img id="tip_3" class="overlay-tip" src="./imgs/tip_3.png" alt="Tip" onclick="fadeOutTip('tip_3')">
+            <img id="tip_4" class="overlay-tip" src="./imgs/tip_4.png" alt="Tip" onclick="fadeOutTip('tip_4')">
+            <img id="tip_5" class="overlay-tip" src="./imgs/tip_5.png" alt="Tip" onclick="fadeOutTip('tip_5')">
+
+        </div>
+    </div>
+
+    <script src="STTandTTS.js"></script>
+    <script src="slideshow.js"></script>
+</body>
+</html>

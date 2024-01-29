@@ -1,0 +1,5 @@
+    <img id="tip_1" class="overlay-tip" src="./imgs/tip_1.png" alt="Tip" onclick="fadeOutTip('tip_1')">
+    <img id="tip_2" class="overlay-tip" src="./imgs/tip_2.png" alt="Tip" onclick="fadeOutTip('tip_2')">
+    <img id="tip_3" class="overlay-tip" src="./imgs/tip_3.png" alt="Tip" onclick="fadeOutTip('tip_3')">
+    <img id="tip_4" class="overlay-tip" src="./imgs/tip_4.png" alt="Tip" onclick="fadeOutTip('tip_4')">
+    <img id="tip_5" class="overlay-tip" src="./imgs/tip_5.png" alt="Tip" onclick="fadeOutTip('tip_5')">

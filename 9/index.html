@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="kr">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>인공지능과 학습 - 비지도학습</title>
+
+		<link rel="stylesheet" href="contents.styles.css" />
+		<link rel="icon" href="./imgs/favicon_1.png" type="image/png" />
+	</head>
+	<body>
+		<div id="page-container">
+			<iframe id="page-frame" src="pg1/index.html" frameborder="0"></iframe>
+		</div>
+
+		<div id="bottom-bar">
+			<button onclick="prevPage()">이전</button>
+			<button onclick="nextPage()">다음</button>
+		</div>
+
+		<script src="slideshow.js"></script>
+		<script>
+			const $iframe = document.getElementById('page-frame');
+
+			resizePageContent();
+			window.addEventListener('resize', resizePageContent);
+
+			function resizePageContent() {
+				const mainContent = document.body;
+				const originalRatio = 1680 / 1050;
+				const currentRatio = window.innerWidth / window.innerHeight;
+
+				const newWidth =
+					currentRatio > originalRatio
+						? window.innerHeight * originalRatio
+						: window.innerWidth;
+				const newHeight = newWidth / originalRatio;
+
+				mainContent.style.width = `${newWidth}px`;
+				mainContent.style.height = `${newHeight}px`;
+
+				const zoomFactor = newWidth / 1680;
+
+				if ($iframe) {
+					const scaledSizePercent = 100 / zoomFactor;
+					$iframe.style.transform = `scale(${zoomFactor})`;
+					$iframe.style.transformOrigin = '0 0';
+					$iframe.style.width = `${scaledSizePercent}%`;
+					$iframe.style.height = `${scaledSizePercent}%`;
+				}
+			}
+		</script>
+	</body>
+</html>

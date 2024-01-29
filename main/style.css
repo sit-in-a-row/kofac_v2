@@ -1,0 +1,111 @@
+* {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #20232C;
+    font-family: 'Pretendard', sans-serif;
+}
+
+body {
+    display: flex;
+}
+
+iframe {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+}
+
+#cover {
+    position: absolute;
+    top: 0;
+    border-radius: 12px;
+    max-height: calc(100vh - 30px);
+    min-height: calc(100vh - 30px);
+    height: calc(100vh - 30px);
+    width: auto;
+    margin: auto;
+    display: block;
+}
+
+#lectureInfo {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    position: fixed;
+    top: 52vh;
+    left: 50vw;
+    height: max-content;
+    width: 35vw;
+    transform: translate(10%, -55%);
+    padding: 30px;
+    border-radius: 20px;
+    gap: 1vh;
+}
+
+h2 {
+    font-size: 210%;
+    margin: 0;
+}
+
+.lectureBtn {
+    font-size: 130%;
+    font-family: 'Pretendard', sans-serif;
+    margin-bottom: 1%;
+    text-align: left;
+    background-color: white;
+    border: none;
+    width: max-content;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: 1%;
+}
+
+.lectureBtn:hover {
+    background-color: #2D82FA;
+    color: white;
+    border-radius: 12px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: 1%;
+}
+
+#bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #384051;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#homeBtn {
+    position: absolute;
+    bottom: 1.2vh;
+    left: 1vw;
+    z-index: 3;
+    margin: 0;
+    width: max-content;
+    height: 40px;
+    background-color: #384051;
+    color: rgb(121, 121, 121);
+    border: none;
+    border-radius: 12px;
+    font-family: 'Pretendard', sans-serif;
+    padding: 0 10px;
+}
+
+#homeBtn:hover {
+    color: #ffffff;
+}

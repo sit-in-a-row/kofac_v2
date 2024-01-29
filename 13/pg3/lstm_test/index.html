@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <script src="chart.min.js"></script>
+        <script src="hammer.js"></script>
+        <script src="chartjs-plugin-zoom.min.js"></script>
+        <script src="moment.min.js"></script>
+        <script src="chartjs-adapter-moment.min.js"></script>
+        <script src="luxon.js"></script>
+        <script src="chartjs-adapter-luxon.js"></script>
+        <script src="chartjs-chart-financial.js"></script>
+        <script src="tfjs.js"></script>
+
+		<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" />
+		<link rel="stylesheet" href="style.css">
+	</head>
+	<body>
+
+		<div style="display: flex;">
+
+			<div class="container" id="csvContainer">
+                
+                <div id="test">
+                    <span> </span>
+                </div>    
+                    
+                <div id="csv-data" style="display: flex; justify-content: center; overflow-y: scroll;">
+                    <!-- CSV 파일이 여기에 표시됩니다 -->
+                </div>
+                
+                <div id="containerBottomBar">
+                    <div >
+                        <button id="loadCSV">예시 데이터 불러오기</button>
+                    </div>
+                    <div style="display: flex; margin-bottom: 10px;">
+                        <input type="file" id="file-input" style="display: none;" />
+                        <button id="custom-file-input">CSV 파일 선택</button>
+                        <button id="showGraph">그래프 보기</button>
+                        <button id="predict">예측하기</button>
+                    </div>
+                </div>
+
+			</div>
+
+			<div class="container" style="display: flex; flex-direction: column; height: calc(100vh - 20px);">
+                
+                <div id="graphsContainer" style="display: flex;">
+                    <div class="subContainer" id="lossContainer">
+                        <p>loss값</p>
+                        <canvas class="subGraph" id="lossGraph">
+                        </canvas>
+                    </div>
+
+                    <div class="subContainer" id="valLossConatiner">
+                        <p>val_loss값</p>
+                        <canvas class="subGraph" id="valLossGraph"></canvas>
+                    </div>
+
+                    <div class="subContainer" id="futurePredContainer">
+                        <p>학습 로그</p>
+                        <div id="logs"></div>
+                    </div>
+                </div>
+
+                <div class="container" id="valResultContainer">
+                    <p>앞으로의 주가 예측</p>
+                    <canvas id="valResultGraph"></canvas>
+                </div>
+                
+			</div>
+
+			</div>
+		</div>
+
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <div style="width: 1000px; height: 800px; display: flex; flex-direction: column; align-items: center;">
+                    <canvas id="chart"></canvas>
+                    <button onclick="chart.resetZoom()" style="margin-top: 10px;">화면 초기화</button>
+                </div>
+            </div>
+        </div>
+
+        <img class="overlay-tip" id="csvTip" src="tip_CSV.png" alt="Tip" onclick="fadeOutTip('csvTip')">
+        <img class="overlay-tip" id="panZoom" src="imgs/tip_panZoom.png" style="display: none;">
+        <img class="overlay-tip" id="reset" src="imgs/tip_reset.png" style="display: none;">
+        <img class="overlay-tip" id="checking" src="imgs/checking.png" style="display: none;">
+
+        <img id="tip_1" class="overlay-tip2" src="./imgs2/tip_1.png" alt="Tip" onclick="fadeOutTip('tip_1')">
+        <img id="tip_2" class="overlay-tip2" src="./imgs2/tip_2.png" alt="Tip" onclick="fadeOutTip('tip_2')">
+        <img id="tip_3" class="overlay-tip2" src="./imgs2/tip_3.png" alt="Tip" onclick="fadeOutTip('tip_3')">
+        <img id="tip_4" class="overlay-tip2" src="./imgs2/tip_4.png" alt="Tip" onclick="fadeOutTip('tip_4')">
+        <img id="tip_5" class="overlay-tip2" src="./imgs2/tip_5.png" alt="Tip" onclick="fadeOutTip('tip_5')">
+
+	</body>
+
+
+    <script src="./script.js"></script>
+    <script src="slideshow.js"></script>
+    <script src="slideshow2.js"></script>
+</html>

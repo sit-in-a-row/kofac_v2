@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <title>K-Mean Algorithm</title>
+</head>
+
+<body>
+  <main class="container">
+
+    <div class="left-container">
+
+      <h2 class="title">k-means 클러스터링 <br> 알아보기</h2>
+
+      <div class="input_K_control">
+        <label for="noOfKInput">클러스터의 개수: </label>
+        <input id="noOfKInput" type="range" min="1" max="5" step="1" value="3" />
+        <span id="noOfK">0</span>
+      </div>
+
+      <div class="input_Rand_control">
+        <label for="randomPointsRange">랜덤포인트 개수: </label>
+        <input id="randomPointsRange" type="range" min="10" max="60" step="1" value="10" />
+        <span id="randomPointsValue">10</span>
+      </div>
+
+      <div class="centroid-container">
+        <input id="centroid-pointer" type="checkbox">
+        <label for="centroid-pointer" style="cursor: pointer;">센트로이드 초깃값 직접 찍기</label>
+      </div>
+
+      <div class="container_control">
+        <input class='btn' id="randomButton" type="button" value="랜덤 포인트 생성" />
+        <input class='btn' id="resetButton" type="button" value="포인트 삭제" />
+        <input class='btn' id="stepButton" type="button" value="단계별 실행" />
+        <input class='btn' id="startButton" type="button" value="클러스터링 실행" />
+      </div>
+
+    </div>
+
+    <div class="right-container">
+      <div id="canvas_container"></div>
+    </div>
+
+    <img id="tip_1" class="overlay-tip" src="./imgs/tip_1.png" alt="Tip" onclick="fadeOutTip('tip_1')">
+    <img id="tip_2" class="overlay-tip" src="./imgs/tip_2.png" alt="Tip" onclick="fadeOutTip('tip_2')">
+    <img id="tip_3" class="overlay-tip" src="./imgs/tip_3.png" alt="Tip" onclick="fadeOutTip('tip_3')">
+    <img id="tip_4" class="overlay-tip" src="./imgs/tip_4.png" alt="Tip" onclick="fadeOutTip('tip_4')">
+    <img id="tip_5" class="overlay-tip" src="./imgs/tip_5.png" alt="Tip" onclick="fadeOutTip('tip_5')">
+
+  </main>
+
+  <script src="./lib/p5.min.js"></script>
+  <script src="./class/Node.js"></script>
+  <script src="./script.js"></script>
+  <script src="./slideshow.js"></script>
+</body>
+
+</html>
+
+

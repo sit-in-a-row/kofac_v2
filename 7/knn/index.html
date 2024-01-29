@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" />
+
+  <style>
+    html { overflow-y: hidden; }
+    body { font-family: 'Pretendard', sans-serif; }
+  </style>
+
+  <title>KNN Demo</title>
+</head>
+<body>
+  <div id="canvas_container"></div>
+
+  <div class="uiContainer">
+
+    <h1 class="title">k-Nearest Neighbors<br>알고리즘 알아보기</h2>
+
+    <div class="noOfNearestPoints">
+      <span id="noOfNearestPoints"></span>
+      <span id="noOfNearestPointsText">개의 가장 가까운 노드: </span>
+      <span id="nearestPoints"></span>
+    </div>  
+
+    <div style="display:flex; gap: 1vh; flex-direction: column;">
+
+      <div class="classifiedLabel">
+        <span id="classifiedLabelText">분류된 군집: </span>
+        <div id="classifiedLabelColor"></div>
+      </div>
+
+      <div class="textContainer">
+        <span id="noOfLabelInputText">라벨의 개수: </span>
+        <span id="noOfKInputText">k의 개수: </span>
+        <span id="noOfDataPointText">데이터포인트의 개수: </span>
+      </div>
+
+      <div class="inputContainer">
+        <input id="noOfLabelInput" type="range" min="2" max="4" step="1" value="4" />
+        <input id="noOfKInput" type="range" min="1" max="11" step="2" value="5" />
+        <input id="noOfDataPointInput" type="range" min="40" max="80" step="10" value="50" />
+      </div>
+
+      <div class="noOfContainer">
+        <span id="noOfLabel">0</span>
+        <span id="noOfK">0</span>
+        <span id="noOfDataPoint">0</span>
+      </div>
+      
+      <input id="randomButton" type="button" value="랜덤 데이터 생성" />
+
+      <img id="tip_1" class="overlay-tip" src="./imgs/tip_1.png" alt="Tip" onclick="fadeOutTip('tip_1')">
+      <img id="tip_2" class="overlay-tip" src="./imgs/tip_2.png" alt="Tip" onclick="fadeOutTip('tip_2')">
+      <img id="tip_3" class="overlay-tip" src="./imgs/tip_3.png" alt="Tip" onclick="fadeOutTip('tip_3')">
+
+    </div>
+
+    
+
+  </div>
+  <script src="./lib/p5.min.js"></script>
+  <script src="./class/Node.js"></script>
+  <script src="./script.js"></script>
+  <script src="./slideshow.js"></script>
+  
+</body>
+</html>
+
+

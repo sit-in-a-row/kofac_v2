@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>경로 찾기 및 미로 생성</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="styleDiv.css">    
+</head>
+
+<body>
+
+    <script type="module" src="public/board0.js"></script>
+
+    <div class="btn-container" id="btn-container" style="display: none;">
+        <span id="algoChoice">알고리즘 선택</span>
+        <button class="btn" id="bfs">너비 우선 탐색</button>
+        <button class="btn" id="dfs">깊이 우선 탐색</button>
+        <button class="btn" id="gbfs">탐욕적 최상 우선 탐색</button>
+        <button class="btn" id="astar">A* 탐색</button>
+    </div>
+    
+    <div class="func-container" id="func-container">
+        <span id="funcInfo">기능 선택</span>
+        <span id="sliderInfo">출력 속도 조절</span>
+        <div class="slider-container">
+            <input type="range" class="slider" id="animationSpeedSlider" min="20" max="800" value="20">
+            <span id="sliderValue">20ms</span>
+        </div>
+        
+        <div class="startAndPause-container">
+            <button class="btn" id="resume">재생</button>
+            <button class="btn" id="pause">정지</button>
+        </div>
+
+        <button class="btn" id="random-maze">랜덤 미로</button>
+        <button class="btn" id="clear-board">보드 지우기</button>
+        <button class="btn" id="clear-path">경로 지우기</button>
+        <button class="btn" id="start">탐색 시작하기</button>
+        
+        <span style="margin-top: 1vh;">분할 모드 활성화</span>
+
+        <label class="switch" id="toggleSwitch">
+            <input type="checkbox" id="checkbox" checked>
+            <span class="slider"></span>
+        </label>  
+    </div>
+    
+    <div id="board" style="opacity: 0;"></div>
+
+    <div id="iframeContainer">
+
+        <div class="row" id="row1">
+            <div id="iframeAstar" class="algoContainer">
+                <p>A* 탐색 알고리즘</p>
+                <iframe class="innerIframe" id="iframe1" src="pathfinder.html"></iframe>
+            </div>
+            <div id="iframeBFS" class="algoContainer">
+                <p>너비 우선 탐색 알고리즘</p>
+                <iframe class="innerIframe" id="iframe2" src="pathfinder.html"></iframe>
+            </div>
+        </div>
+        <div class="row" id="row2">
+            <div id="iframeDFS" class="algoContainer">
+                <p>깊이 우선 탐색 알고리즘</p>
+                <iframe class="innerIframe" id="iframe3" src="pathfinder.html"></iframe>
+            </div>
+            <div id="iframeGBFS" class="algoContainer">
+                <p>탐욕적 최상 우선 탐색 알고리즘</p>
+                <iframe class="innerIframe" id="iframe4" src="pathfinder.html"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <div id="info-container" style="opacity: 0;">
+        <div id="nodesVisited" style="display: none;"></div>
+        <div id="time" style="display: none;"></div>
+    </div>    
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="public/board0.js"></script>
+    <script src="public/index.js"></script>
+    <script src="control.js"></script>
+
+    <script>
+        // 버튼 요소들을 선택
+        const buttons = document.querySelectorAll('#astar, #dijkstra, #bfs, #dfs, #gbfs, #resume, #pause');
+
+        // 각 버튼에 클릭 이벤트 리스너 추가
+        buttons.forEach(button => {
+            button.addEventListener('click', function() {
+                // 모든 버튼의 활성 클래스 제거
+                buttons.forEach(btn => btn.classList.remove('active'));
+
+                // 클릭된 버튼에 활성 클래스 추가
+                this.classList.add('active');
+            });
+        });
+
+        document.getElementById('checkbox').addEventListener('change', function() {
+            console.log('선택됨');
+            if(!this.checked) {
+                window.location.href = '../../pg3/path_visualizer/pathfinder.html';
+            }
+        });
+    </script>
+
+</body>
+
+</html>

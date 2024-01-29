@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>전문가 시스템 예시</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+</head>
+<body>
+
+    <div id="totalContainer">
+
+        <div id="knowledgeContainer">
+
+            <div class="container">
+                <h3>지식 베이스 생성</h3>
+            </div>
+            
+            <div class="container" id="inputContainer">
+
+                <p><strong>규칙 입력</strong></p>
+                
+                <div id="conditionInput">
+
+                    <div id="inputPlace">
+                        <div class="inputRow">
+                            <label for="ifInput">IF:</label>
+                            <input type="text" id="ifInput" placeholder="(ex. 비가 온다)">
+                        </div>
+                        <div class="inputRow">
+                            <label for="andInput">AND:</label>
+                            <input type="text" id="andInput" placeholder="(ex. 하늘이 흐리다)">
+                        </div>
+                        <div class="inputRow">
+                            <label for="orInput">OR:</label>
+                            <input type="text" id="orInput" placeholder="(ex. 바람이 분다)">
+                        </div>
+                        <div class="inputRow">
+                            <label for="thenInput">THEN:</label>
+                            <input type="text" id="thenInput" placeholder="(ex. 우산을 챙긴다)">
+                        </div>
+                    </div>
+                
+                </div>
+                
+                
+                <button onclick="addRule()">규칙 입력</button>
+            </div>
+
+            <div class="container" id="factInputContainer">
+
+                <p><strong>사실 입력</strong></p>
+
+                <input type="text" id="factInputField" placeholder="(ex. 비가 온다)">
+
+                <button onclick="addFact()">사실 입력</button>
+
+                <button onclick="runInference()">추론 실행</button>
+
+                <button id="reset" onclick="location.reload()">초기화</button>
+
+            </div>
+                
+        </div>
+
+        <div id="resultContainer">
+
+            <div id="rulesContainer">
+                <h2>규칙</h2>
+                <div id="rules"></div>
+            </div>
+
+            <div id="factsContainer">
+                <h2>사실</h2>
+                <div id="facts"></div>
+            </div>
+
+            <div id="infereceContainer">
+                <h2>추론 결과</h2>
+                <div id="result"></div>
+            </div>
+
+        </div>
+
+        <img id="tip_1" class="overlay-tip" src="./imgs/tip_1.png" alt="Tip" onclick="fadeOutTip('tip_1')">
+        <img id="tip_2" class="overlay-tip" src="./imgs/tip_2.png" alt="Tip" onclick="fadeOutTip('tip_2')">
+        <img id="tip_3" class="overlay-tip" src="./imgs/tip_3.png" alt="Tip" onclick="fadeOutTip('tip_3')">
+        <img id="tip_4" class="overlay-tip" src="./imgs/tip_4.png" alt="Tip" onclick="fadeOutTip('tip_4')">
+        <img id="tip_5" class="overlay-tip" src="./imgs/tip_5.png" alt="Tip" onclick="fadeOutTip('tip_5')">
+
+    </div>
+
+    <script src="./script.js"></script>
+    <script src="./slideshow.js"></script>
+</body>
+</html>

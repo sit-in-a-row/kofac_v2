@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>모럴머신</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+</head>
+<body>
+
+
+    <div id="machineContainer">
+        
+        <img id="background" src="imgs/background.png" alt="배경 이미지">
+
+        <div id="choice1">
+            
+            <div id="PassengerContainer">
+                <img class="PassengerChar" id="passenger1_1">
+                <img class="PassengerChar" id="passenger2_1">
+                <img class="PassengerChar" id="passenger3_1">
+                <img class="PassengerChar" id="passenger4_1">
+                <img class="PassengerChar" id="passenger5_1">
+            </div>
+
+            <div id="PedestrianContainer">
+                <img class="PedestrianChar" id="pedestrian1_1">
+                <img class="PedestrianChar" id="pedestrian2_1">
+                <img class="PedestrianChar" id="pedestrian3_1">
+                <img class="PedestrianChar" id="pedestrian4_1">
+                <img class="PedestrianChar" id="pedestrian5_1">
+            </div>
+
+            <img class="trafficLight" id="trafficLight_1">
+            <img class="trafficLight" id="trafficLight_1_1">
+
+        </div>
+
+        <div id="choice2">
+            
+            <div id="PassengerContainer">
+                <img class="PassengerChar" id="passenger1_2">
+                <img class="PassengerChar" id="passenger2_2">
+                <img class="PassengerChar" id="passenger3_2">
+                <img class="PassengerChar" id="passenger4_2">
+                <img class="PassengerChar" id="passenger5_2">
+            </div>
+
+            <div id="PedestrianContainer">
+                <img class="PedestrianChar" id="pedestrian1_2">
+                <img class="PedestrianChar" id="pedestrian2_2">
+                <img class="PedestrianChar" id="pedestrian3_2">
+                <img class="PedestrianChar" id="pedestrian4_2">
+                <img class="PedestrianChar" id="pedestrian5_2">
+            </div>
+
+            <img class="trafficLight" id="trafficLight_2">
+            <img class="trafficLight" id="trafficLight_2_2">
+
+        </div>
+
+        <div id="btnContainer">
+            <div>
+                <button class="infoBtn" id="info1Btn">?</button>
+                <button class="choiceBtn" id="choice1Btn">1번 선택</button>
+            </div>
+            <div>
+                <button class="choiceBtn" id="submit">제출하기 (0/20)</button>
+            </div>
+            <div>
+                <button class="choiceBtn" id="choice2Btn">2번 선택</button>
+                <button class="infoBtn" id="info2Btn">?</button>
+            </div>
+        </div>
+
+        <img src="imgs/more.png" id="moreImage" style="display: none;">
+        <img src="imgs/done.png" id="doneImage" style="display: none;">
+
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="closeBtn">&times;</span>
+                <div id="modalOutput">
+                    
+                </div>
+            </div>
+        </div>
+
+        <div id="submitModal" class="modal">
+            <div class="modal-content-submit">
+                <span class="close" id="closeSubmitBtn">&times;</span>
+                <h1>나의 모럴머신 테스트 결과</h1>
+                <div id="submitModalOutput">
+                    
+                    
+                    <div id="mostCharContainer" style="display: flex;">
+                        <div style="display: flex; flex-direction: column; align-items: center;">
+                            <h2>가장 많이 살린 캐릭터</h2>
+                            <div id="charImgContainer" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <div class="mostImg" id="mostSavedChar"></div>
+                                <p id="mostSavedCharName"></p>
+                            </div>
+                        </div>
+                        <div style="display: flex; flex-direction: column; align-items: center;">
+                            <h2>가장 많이 죽은 캐릭터</h2>
+                            <div id="charImgContainer" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                                <div class="mostImg" id="mostKilledChar"></div>
+                                <p id="mostKilledCharName"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="infoRow" id="ManyLess" style="display: flex; flex-direction: column; align-items: center;">
+                        <h3>더 많은 사람을 구하는건 나에게 얼마나 중요했을까?</h3>
+                        <div class="barContainer">
+                            <div class="infoText-left">
+                                <img class="indexImg" src="imgs/save_less.png"></img>
+                            </div>
+                            <div style="display: flex;">
+                                <div id="manyLessBar" class="bar-container">
+                                    <div class="bar">
+                                        <span class="selected-percent"></span> <!-- 선택한 옵션에 대한 퍼센트 -->
+                                        <span class="remaining-percent"></span> <!-- 나머지 퍼센트 -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="infoText-right">
+                                <img class="indexImg" src="imgs/save_many.png"></img>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="infoRow" id="PassangerPedestrian" style="display: flex; flex-direction: column; align-items: center;">
+                        <h3>나는 탑승자와 보행자 중 누구를 더 많이 살렸을까?</h3>
+                        <div class="barContainer">
+                            <div class="infoText-left"> 
+                                <img class="indexImg" src="imgs/car.png"></img>
+                            </div>
+                            <div style="display: flex;">
+                                <div id="passengerPedestrianBar" class="bar-container">
+                                    <div class="bar">
+                                        <span class="selected-percent"></span> <!-- 선택한 옵션에 대한 퍼센트 -->
+                                        <span class="remaining-percent"></span> <!-- 나머지 퍼센트 -->
+                                    </div>
+                                </div>                                                            
+                            </div>
+                            <div class="infoText-right">
+                                <img class="indexImg" src="imgs/pedestrian.png"></img>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div id="YoungElder">
+                        <h3>나는 아이와 노인 중 누구를 더 많이 구했을까?</h3>
+                        <div class="barContainer">
+                            <img class="indexImg" src="imgs/kid.png"></img>
+                            <div style="display: flex;">
+                                <div class="result" id="youngCount"></div>
+                                <div class="result" id="youngElderResult">여기에 숫자 출력</div>
+                                <div class="result" id="elderCount"></div>
+                            </div>
+                            <img class="indexImg" src="imgs/old_index.png"></img>
+                        </div>
+                    </div> -->
+
+                    <div class="infoRow" id="Outlaw" style="display: flex; flex-direction: column; align-items: center;">
+                        <h3>나는 무단횡단한 사람도 구해줬을까?</h3>
+                        <div class="barContainer">
+                            <div class="infoText-left">
+                                <img class="indexImg" src="imgs/outlaw_dead.png"></img>
+                            </div>
+                            <div style="display: flex;">
+                                <div id="trafficBar" class="bar-container">
+                                    <div class="bar">
+                                        <span class="selected-percent"></span> <!-- 선택한 옵션에 대한 퍼센트 -->
+                                        <span class="remaining-percent"></span> <!-- 나머지 퍼센트 -->
+                                    </div>
+                                </div>                                                                
+                            </div>
+                            <div class="infoText-right">
+                                <img class="indexImg" src="imgs/outlaw_live.png"></img>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="infoRow" id="Puppy" style="display: flex; flex-direction: column; align-items: center;">
+                        <h3>강아지를 몇 번 구했을까? 내 판단에 강아지는 중요했을까?</h3>
+                        <div class="barContainer">
+                            <div class="infoText-left">
+                                <img class="indexImg" src="imgs/dog_dead.png"></img>
+                            </div>
+                            <div style="display: flex;">
+                                <div id="puppyBar" class="bar-container">
+                                    <div class="bar">
+                                        <span class="selected-percent"></span> <!-- 선택한 옵션에 대한 퍼센트 -->
+                                        <span class="remaining-percent"></span> <!-- 나머지 퍼센트 -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="infoText-right">
+                                <img class="indexImg" src="imgs/dog.png"></img>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img id="tip_1" class="overlay-tip" src="./imgs/tip_1.png" alt="Tip" onclick="fadeOutTip('tip_1')">
+        <img id="tip_2" class="overlay-tip" src="./imgs/tip_2.png" alt="Tip" onclick="fadeOutTip('tip_2')">
+        <img id="tip_3" class="overlay-tip" src="./imgs/tip_3.png" alt="Tip" onclick="fadeOutTip('tip_3')">
+        <img id="tip_4" class="overlay-tip" src="./imgs/tip_4.png" alt="Tip" onclick="fadeOutTip('tip_4')">
+
+    </div>
+    <script src="script.js"></script>
+    <script src="slideshow.js"></script>
+</body>
+</html>

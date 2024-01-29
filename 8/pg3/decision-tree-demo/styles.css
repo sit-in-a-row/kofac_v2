@@ -1,0 +1,250 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Pretendard', sans-serif;
+}
+
+canvas {
+    /* width: 20vw;
+    height: auto; */
+    /* padding: 0.5vh; */
+    border-radius: 10px;
+    border: 1px solid #929292;
+    background-color: white;
+}
+
+h2 {
+    margin-bottom: 1vh;
+}
+
+.column {
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.canvasContainer {
+    /* margin-top: 3vh;
+    margin-bottom: 3vh; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#columnContainer {
+    position: absolute;
+    top: 50vh;
+    right: 2vw;
+    transform: translateY(-50%);
+    gap: 8vw;
+    padding-left: 3vw;
+    padding-right: 3vw;
+    border: 1px solid #929292;
+    border-radius: 10px;
+}
+
+#treeContainer {
+    /* width: 100vw; */
+    justify-content: center;
+}
+
+#uiContainer {
+    position: relative;
+    margin: 5vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 3vh;
+    padding: 3vh;
+    border: 1px solid #929292;
+    border-radius: 10px;
+    gap: 2vh;
+    background-color: #e0e0e0;
+}
+
+#treeLeaf {
+    width: max-content;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    /* margin: 20px; */
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    /* background-color: grey; */
+    border: 1px solid #929292;
+    align-items: center;
+    gap: 1vh;
+    border-radius: 10px;
+    /* box-shadow: 0 0 10px #929292;  */
+}
+
+.tree_true {
+    width: max-content;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    /* margin: 20px; */
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    /* background-color: blue; */
+    /* border: 2px solid rgba(253, 38, 38, 0.5);  */
+    border: 1px solid #929292;
+    align-items: center;
+    gap: 1vh;
+    border-radius: 10px;
+    /* box-shadow: 0 0 10px #FD2626;  */
+}
+
+.tree_false {
+    width: max-content;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+    /* margin: 20px; */
+    padding: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    /* background-color: red; */
+    /* border: 2px solid rgba(0, 32, 115, 0.5); */
+    border: 1px solid #929292;
+    align-items: center;
+    gap: 1vh;
+    border-radius: 10px;
+    /* box-shadow: 0 0 10px #002073;  */
+}
+
+#column2 {
+    margin: 1vh;
+    gap: 32.5vh;
+}
+
+#column3 {
+    margin: 1vh;
+    gap: 13vh;
+}
+
+#column4 {
+    margin: 1vh;
+    gap: 1vh;
+}
+
+input {
+    width: 3vw;
+}
+
+select {
+    width: max-content;
+}
+
+#btnContainer {
+    gap: 0.3vw;
+}
+
+.confirmBtn, #genDataBtn, #clearBtn {
+    width: max-content;
+    height: max-content;
+    padding: 1vh;
+    /* padding-top: 0.2vh;
+    padding-bottom: 0.2vh; */
+    background-color: #2D82FA;
+    color: white;
+    border-radius: 10px;
+    border: none;
+}
+
+.confirmBtn {
+    background-color: #002073;
+    color: white;
+    padding-top: 0.2vh;
+    padding-bottom: 0.2vh;
+}
+
+#genDataBtn:hover, #clearBtn:hover {
+    background-color: #002073;
+    color: white;
+}
+
+.confirmBtn:hover {
+    background-color: #2D82FA;
+    color: white;
+}
+
+#notifyCoor {
+    position: absolute;
+    background-color: #002073;
+    color: white;
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
+    border-radius: 10px;
+}
+
+#treeLeaf2-1, #treeLeaf2-2, #treeLeaf3-1, #treeLeaf3-2, #treeLeaf3-3, #treeLeaf3-4 {
+    opacity: 0;
+}
+
+/* 툴팁 슬라이드쇼 */
+.overlay-tip {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    width: auto;
+    height: 13vh;
+    margin: 10px; 
+    opacity: 0; 
+    animation: fadeIn 1s ease-out forwards; 
+    cursor: pointer; 
+    z-index: 2;
+}
+
+#tip_1 {
+    position: absolute;
+    bottom: 35%;
+    left: 0%;
+}
+
+#tip_2 {
+    position: absolute;
+    top: 10%;
+    left: 0%;
+}
+
+#tip_3 {
+    position: absolute;
+    bottom: 25%;
+    left: 15%;
+}
+
+#tip_4 {
+    position: absolute;
+    bottom: 25%;
+    left: 35%;
+}
+
+#tip_5 {
+    position: absolute;
+    top: 70%;
+    right: 50%;
+    transform: translate(50%, -50%);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0; 
+    }
+    to {
+        opacity: 1; 
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1; 
+    }
+    to {
+        opacity: 0; 
+    }
+}

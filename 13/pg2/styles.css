@@ -1,0 +1,40 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #20232C;
+}
+
+body {
+    display: flex;
+}
+
+#img2 {
+    border-radius: 12px;
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    display: block;
+}
+
+.model-btn {
+    position: absolute;
+    transform: translateY(-50%);
+    width: 650px;
+    height: 100px;
+    opacity: 0;
+  }
+  
+#model-btn-1 {
+  left: 28%;
+  bottom: 21vh;
+  transform: translateX(-50%);
+}
+
+#model-btn-2 {
+  left: 28%;
+  bottom: 10vh;
+  transform: translateX(-50%);
+}

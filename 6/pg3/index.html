@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선형회귀 3페이지</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="./imgs/favicon_1.png" type="image/png">
+
+    <!-- Pretendard CSS 링크 -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" />
+
+</head>
+
+<body>
+    <img id="img3" src="./imgs/background.png" alt="Image 3">
+
+    <img id="TIP_Random" class="overlay-tip" src="./imgs/TIP_Random.png" alt="Tip" onclick="fadeOutTip('TIP_Random')">
+    <img id="TIP_Start" class="overlay-tip" src="./imgs/TIP_Start.png" alt="Tip" onclick="fadeOutTip('TIP_Start')">
+    <img id="TIP_RegMSE" class="overlay-tip" src="./imgs/TIP_RegMSE.png" alt="Tip" onclick="fadeOutTip('TIP_RegMSE')">
+    <img id="TIP_Reset" class="overlay-tip" src="./imgs/TIP_Reset.png" alt="Tip" onclick="fadeOutTip('TIP_Reset')">
+    <img id="TIP_point" class="overlay-tip" src="./imgs/TIP_point.png" alt="Tip" onclick="fadeOutTip('TIP_point')">
+
+    <div id="resultMessage"></div>
+
+    <!-- iframe 활용 -->
+    <iframe src="./linreg/linreg.html"></iframe>
+
+    <script src="slideshow.js"></script>
+</body>
+
+</html>

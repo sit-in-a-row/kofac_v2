@@ -1,0 +1,248 @@
+<!--
+Copyright 2018 Google LLC. All Rights Reserved.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+==============================================================================
+-->
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Webcam Pacman</title>
+
+  <link rel="stylesheet" href="material.cyan-teal.min.css" />
+  <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <script defer src="material.min.js"></script>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div id="no-webcam">
+      웹캠을 찾을 수 없습니다.<br/>
+      웹캠이 장비된 기기로 다시 시도해주세요.
+  </div>
+  <div id="status">인공지능 모델을 불러오는 중입니다...</div>
+  <!-- Top -->
+
+  <div id="globalContainer">
+
+    <div class="controller-panels" id="controller" style="display:none">
+
+      <div class="panel training-panel">
+        <h3>Tensorflow로 팩맨 게임 플레이하기</h3>
+        <div class="panel-row params-webcam-row">
+          <!-- Hyper params. -->
+          <div class="hyper-params" style="display: flex;">
+
+            <div id="hyper-param-column">
+              <!-- Learning rate -->
+              <div class="dropdown">
+                <label>학습률</label>
+                <div class="select">
+                  <select id="learningRate">
+                    <option value="0.00001">0.00001</option>
+                    <option selected value="0.0001">0.0001</option>
+                    <option value="0.01">0.001</option>
+                    <option value="0.03">0.003</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Batch size -->
+              <div class="dropdown">
+                <label>배치 사이즈</label>
+                <div class="select">
+                  <select id="batchSizeFraction">
+                    <option value="0.05">0.05</option>
+                    <option value="0.1">0.1</option>
+                    <option selected value="0.4">0.4</option>
+                    <option value="1">1</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <div id="hyper-param-column">
+              <!-- Epochs -->
+              <div class="dropdown">
+                <label>에포크</label>
+                <div class="select">
+                  <select id="epochs">
+                    <option value="10">10</option>
+                    <option selected value="20">20</option>
+                    <option value="40">40</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Hidden units -->
+              <div class="dropdown">
+                <label>은닉층</label>
+                <div class="select">
+                  <select id="dense-units">
+                    <option value="10">10</option>
+                    <option selected value="100">100</option>
+                    <option value="200">200</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /.hyper-params -->
+
+          <div class="webcam-box-outer">
+            <div class="webcam-box-inner">
+              <video autoplay playsinline muted id="webcam" width="224" height="224"></video>
+            </div>
+          </div>
+
+        </div><!-- /.panel-row -->
+
+      </div><!-- /.panel -->
+
+      <!-- Big buttons. -->
+      <div class="panel-row big-buttons">
+        <button id="train">
+          <!-- <img width="66" height="66" src="./images/button.svg" /> -->
+          <span id="train-status">학습 시작하기</span>
+        </button>
+        <button id="predict">
+          <!-- <img width="66" height="66" src="./images/button.svg" /> -->
+          <span>게임 시작하기</span>
+        </button>
+      </div><!-- /.panel-row -->
+
+      <div class="panel joystick-panel">
+
+        <div class="panel-row panel-row-top">
+
+          <div class="panel-cell panel-cell-left panel-cell-fill" style="width: 30px;">
+            <!-- <p class="help-text">
+            화면을 클릭해서 <br/>
+            카메라에 비친 모습으로<br/>
+            팩맨을 조종합니다.<br/>
+            </p> -->
+          </div><!-- ./panel-cell -->
+
+          <div class="panel-cell panel-cell-center">
+            <p>
+              <span id="up-total">0</span>
+            </p>
+            <div class="thumb-box">
+              <div class="thumb-box-outer">
+                <div class="thumb-box-inner">
+                  <canvas class="thumb" width=224 height=224 id="up-thumb"></canvas>
+                </div>
+                <button class="record-button" id="up"/><span>데이터 추가</span></button>
+              </div>
+              
+            </div>
+          </div><!-- ./panel-cell -->
+
+          <div class="panel-cell panel-cell-right panel-cell-fill">
+          </div><!-- ./panel-cell -->
+
+        </div><!-- /.panel-row -->
+        <div class="panel-row panel-row-middle">
+          <div class="panel-cell panel-cell-left">
+            <div class="thumb-box">
+              <p>
+                <span id="left-total">0</span>
+              </p>
+              <div class="thumb-box-outer">
+                <div class="thumb-box-inner">
+                  <canvas class="thumb" width=224 height=224 id="left-thumb"></canvas>
+                </div>
+                <button class="record-button" id="left"/><span>데이터 추가</span></button>
+              </div>
+
+            </div>
+          </div><!-- ./panel-cell -->
+
+          <div class="panel-cell panel-cell-center panel-cell-fill">
+            <img height="108" width="129" src="./images/joystick.png" />
+          </div><!-- ./panel-cell -->
+
+          <div class="panel-cell panel-cell-right">
+            <div class="thumb-box">
+              <div class="thumb-box-outer">
+                <div class="thumb-box-inner">
+                  <canvas class="thumb" width=224 height=224 id="right-thumb"></canvas>
+                </div>
+                <button class="record-button" id="right"/><span>데이터 추가</span></button>
+              </div>
+              <p>
+                <span id="right-total">0</span>
+              </p>
+            </div>
+          </div><!-- ./panel-cell -->
+
+        </div><!-- /.panel-row -->
+
+        <div class="panel-row panel-row-bottom">
+
+          <div class="panel-cell panel-cell-left panel-cell-fill" style="width: 30px;">
+          </div><!-- ./panel-cell -->
+
+          <div class="panel-cell panel-cell-center">
+            <div class="thumb-box">
+              <div class="thumb-box-outer">
+                <div class="thumb-box-inner">
+                  <canvas class="thumb" width=224 height=224 id="down-thumb"></canvas>
+                </div>
+                <button class="record-button" id="down"/><span>데이터 추가</span></button>
+              </div>
+
+            </div>
+            <p>
+              <span id="down-total">0</span>
+            </p>
+          </div><!-- ./panel-cell -->
+
+          <div class="panel-cell panel-cell-right panel-cell-fill">
+          </div><!-- ./panel-cell -->
+
+        </div><!-- /.panel-row -->
+
+
+      </div><!-- /.panel -->
+
+    </div><!-- /#controller -->
+
+    <div id="pacman-container" style="transform: scale(1.2); transform-origin: top left;">
+      <div id="logo">
+        <div id="logo-l">
+          <div id="logo-b">
+          </div>
+        </div>
+      </div>
+      <p id="copyright">PAC-MAN&trade; &copy; BANDAI NAMCO Entertainment Inc.<br><a href="https://js.tensorflow.org" target="_blank" rel="noopener">TensorFlow.js</a>
+    </div>
+
+    <img id="tip_1" class="overlay-tip" src="./imgs/tip_1.png" alt="Tip" onclick="fadeOutTip('tip_1')">
+    <img id="tip_2" class="overlay-tip" src="./imgs/tip_2.png" alt="Tip" onclick="fadeOutTip('tip_2')">
+    <img id="tip_3" class="overlay-tip" src="./imgs/tip_3.png" alt="Tip" onclick="fadeOutTip('tip_3')">
+    <img id="tip_4" class="overlay-tip" src="./imgs/tip_4.png" alt="Tip" onclick="fadeOutTip('tip_4')">
+    <img id="tip_5" class="overlay-tip" src="./imgs/tip_5.png" alt="Tip" onclick="fadeOutTip('tip_5')">
+
+  </div>
+
+  <script src="pacman.js"></script>
+  
+  <script src="tfjs.js"> </script>
+  
+  <script src="ui.js"></script>
+  <script src="webcam.js"></script>
+  <script src="controller_dataset.js"></script>
+  <script src="index.js"></script>
+  <script src="slideshow.js"></script>
+</body>
+</html>

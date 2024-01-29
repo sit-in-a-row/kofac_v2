@@ -1,0 +1,44 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #20232C;
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+}
+
+#check_0, #goodbye {
+    border-radius: 12px;
+    top: 50vh;
+    left: 50vw;
+    height: 100vh;
+    margin: auto;
+    display: block;
+}
+
+#goodbye {
+    top: 0;
+    left: auto;
+}
+
+#btn-container {
+    position: absolute;
+    top: 50vh;
+    transform: translate(50%, -50%);
+}
+
+.check-btn {
+    transform: translateY(-50%);
+    transform: translateX(-60%);
+    width: 100vw;
+    height: 10vh;
+    opacity: 0;
+    left: 50%;
+    margin: 1vh;
+    z-index: 3;
+}

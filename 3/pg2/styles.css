@@ -1,0 +1,52 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #20232C;
+}
+
+body {
+    display: flex;
+}
+
+#img2 {
+    border-radius: 12px;
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    display: block;
+}
+
+.algo-btn {
+    position: absolute;
+    transform: translateY(-50%);
+    width: 650px;
+    height: 100px;
+    opacity: 0;
+  }
+  
+  #algo-btn-1 {
+    left: 28%;
+    top: 46%;
+    transform: translateX(-50%);
+  }
+  
+  #algo-btn-2 {
+    left: 28%;
+    top: 57.2%;
+    transform: translateX(-50%);
+  }
+  
+  #algo-btn-3 {
+    left: 28%;
+    top: 68.4%;
+    transform: translateX(-50%);
+  }
+  
+  #algo-btn-4 {
+    left: 28%;
+    top: 79.6%;
+    transform: translateX(-50%);
+  }

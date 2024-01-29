@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" />
+</head>
+<body>
+	<div id="container">
+		<div id="wrapper0">
+			<div class="result-title">특성 분류 결과를 확인해볼까요? </div>
+			</div>
+			<div id="wrapper1">
+				<div>
+					<div class="analysis-title">추출한 데이터의 특성 </div>
+					<div style="display: flex; flex-direction: column; align-items: center;">
+						<div id="analysis-container">
+
+						</div>
+						<button id="retry">다시 해보기</button>
+					</div>
+				</div>
+				<div id="image-container"></div>
+			</div>
+			<!-- <div id="wrapper2">
+
+				<div id="tip-image">
+					<button id="close-button"></button>
+				</div>
+			</div> -->
+			<img id="tip" src="imgs/tip.png"/>
+			<img id="tip_1" class="overlay-tip" src="./imgs/tip_1.png" alt="Tip" onclick="fadeOutTip('tip_1')">
+		</div>
+	</div>
+    <script src="script.js"></script>
+	<script src="slideshow.js"></script>
+</body>
+</html>

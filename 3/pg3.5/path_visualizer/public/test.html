@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pathfinding Visualization</title>
+<style>
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(10, 20px);
+        gap: 1px;
+    }
+    .cell {
+        width: 20px;
+        height: 20px;
+        background-color: #ddd;
+        border: 1px solid #aaa;
+    }
+    .visited {
+        background-color: lightgreen;
+    }
+    button {
+        margin: 10px;
+        padding: 5px 10px;
+    }
+</style>
+</head>
+<body>
+<div id="grid" class="grid"></div>
+<button id="startButton">Start</button>
+<button id="pauseButton">Pause</button>
+<script>
+    let grid = [];
+    const gridSize = 10;
+    let interval;
+    let currentCell = { x: 0, y: 0 };
+    function createGrid() {
+        const gridElement = document.getElementById('grid');
+        for (let y = 0; y < gridSize; y++) {
+            let row = [];
+            for (let x = 0; x < gridSize; x++) {
+                let cell = document.createElement('div');
+                cell.classList.add('cell');
+                gridElement.appendChild(cell);
+                row.push({ x, y, element: cell });
+            }
+            grid.push(row);
+        }
+    }
+    function visitCell(cell) {
+        cell.element.classList.add('visited');
+    }
+    function depthFirstSearch() {
+        if (currentCell.x < gridSize && currentCell.y < gridSize) {
+            visitCell(grid[currentCell.y][currentCell.x]);
+            if (currentCell.x < gridSize - 1) {
+                currentCell.x++;
+            } else {
+                currentCell.x = 0;
+                currentCell.y++;
+            }
+        } else {
+            clearInterval(interval);
+        }
+    }
+    document.getElementById('startButton').addEventListener('click', () => {
+        interval = setInterval(depthFirstSearch, 100);
+    });
+    document.getElementById('pauseButton').addEventListener('click', () => {
+        clearInterval(interval);
+    });
+    createGrid();
+</script>
+</body>
+</html>

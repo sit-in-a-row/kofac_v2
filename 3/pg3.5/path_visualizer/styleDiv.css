@@ -1,0 +1,339 @@
+* {
+    font-family: 'Pretendard', sans-serif;
+    overflow: hidden;
+}
+
+body{
+    position: relative;
+}
+table{
+    background: rgb(238, 237, 237);
+}
+td{
+    border: 1px solid #d3d2d2;
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+td.wall{
+    animation-name: wall;
+    animation-duration: 0.1s;
+    animation-fill-mode: forwards;
+}
+td.start{
+    background-image: url('./icons/arrow.svg');
+    background-position: center;
+    animation-name: icons;
+    animation-duration: 3.0s;
+    animation-fill-mode: forwards;
+}
+td.end{
+    background-image: url('./icons/pin_point.svg');
+    background-position: center;
+    animation-name: icons;
+    animation-duration: 3.0s;
+    animation-fill-mode: forwards;
+}
+td.visited{
+    animation-name: visited;
+    animation-duration: 1.0s;
+    animation-fill-mode: forwards;
+}
+td.path{
+    animation-name: path;
+    animation-duration: 1.0s;
+    animation-fill-mode: forwards;
+}
+
+/* #iframeContainer {
+    position: absolute;
+    top: 60%;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    width: 1500px; 
+    height: 800px; 
+    border: none;
+    border-radius: 12px;
+    z-index: 1;
+} */
+
+/* 슬라이더 관련 스타일 */
+
+.slider-container {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+.slider {
+    flex: 1; 
+}
+
+#sliderValue {
+    font-size: 1.5vh;
+    font-family: 'Pretendard', sans-serif;
+    margin-left: 10px; 
+}
+
+#funcInfo {
+    font-size: 2.5vh;
+    font-family: 'Pretendard', sans-serif;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+#sliderInfo {
+    font-size: 2vh;
+    font-family: 'Pretendard', sans-serif;
+}
+
+/* 슬라이더 관련 스타일 */
+
+/* 재생 일시정지 관련 스타일 */
+.startAndPause-container {
+    display: flex; /* 버튼을 가로로 나란히 배치하도록 설정 */
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+/* 재생 일시정지 관련 스타일 */
+  
+/* Container styles */
+#btn-container, #func-container {
+    position: absolute;
+    top: 3%;
+    padding: 10px;
+    width: 12%;
+    border-radius: 5px;
+    /* background-color: #f0f0f0; */
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#btn-container { left: 1%; }
+#func-container { right: 1%; }
+
+/* Button styles */
+.btn {
+    position: relative;
+    padding: 10px;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    height: 8%;
+    text-align: center;
+    z-index: 5;
+    font-size: 2vh;
+    font-weight: bold;
+    font-family: 'Pretendard', sans-serif;
+    line-height: 100%;
+    width: 100%;
+    color: #929292;
+    background-color: white;
+}
+
+/* Positioning specific buttons */
+#astar { top: 10%; }
+#dijkstra { top: 30%; }
+#bfs { top: 50%; }
+#dfs { top: 70%; }
+#gbfs { top: 90%; }
+#clear-board { top: 10%; background-color: #FD2626; color: #ffffff; margin: 3px 0;}
+#clear-path { top: 30%; background-color: #FD2626; color: #ffffff; margin: 3px 0;}
+#random-maze { top: 50%; background-color: #FDCE21; color: #ffffff; margin: 3px 0;}
+#start { top: 70%; background-color: #00D424; color: #ffffff; margin: 3px 0;}
+#clear-board:hover { top: 10%; background-color: #bb1d1d; color: #ffffff; margin: 3px 0;}
+#clear-path:hover { top: 30%; background-color: #bb1d1d; color: #ffffff; margin: 3px 0;}
+#random-maze:hover { top: 50%; background-color: #c09c18; color: #ffffff; margin: 3px 0;}
+#start:hover { top: 70%; background-color: #018817; color: #ffffff; margin: 3px 0;}
+
+/* Hover and active state styles */
+.btn.active, .btn:hover {
+    /* background-color: #ffffff; */
+    background-color: #f0f0f0;
+    color: #3498db;
+}
+
+/* #clear-board:hover, #clear-path:hover, #random-maze:hover, #start:hover {
+    background-color: #ffffff;
+    color: #3498db;
+} */
+
+/* Title Styles */
+#algoChoice {
+    font-family: 'Pretendard', sans-serif;
+    font-size: 3vh;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+#info-container {
+    position: absolute;
+    left: 1%;
+    bottom: 3%;
+    padding: 10px;
+    width: 12%;
+    border-radius: 5px;
+    background-color: #f0f0f0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    opacity: 1;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#info-container {
+    position: absolute;
+    bottom: 3%;
+    padding: 5px;
+    width: auto;
+    border-radius: 5px;
+    /* background-color: #f0f0f0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
+    z-index: 10;
+    opacity: 1;
+    display: flex;
+    flex-direction: row; 
+    align-items: center;
+}
+
+#nodesVisited,
+#time {
+    display: flex; /* none에서 flex로 변경 */
+    position: relative;
+    bottom: 10%;
+    left: 0;
+    width: auto;
+    padding: 10px; /* 필요에 따라 조정 */
+    z-index: 2;
+    pointer-events: none;
+    font-family: 'Pretendard', sans-serif;
+    font-size: 2.5vh;
+    background-color: rgba(255, 255, 255, 0.8); /* 투명도 조정 */
+    border-radius: 5px; /* 필요에 따라 조정 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* 필요에 따라 조정 */
+    margin: 3px 0;
+    margin-right: 3px;
+    margin-left: 3px;
+}
+
+#toggleSwitch {
+    position: relative;
+    display: inline-block;
+    width: 7vh;
+    height: 4vh;
+    margin-top: 1vh;
+  }
+  
+  #toggleSwitch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  #toggleSwitch .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 7vh;
+  }
+  
+  #toggleSwitch .slider:before {
+    position: absolute;
+    content: "";
+    height: 3vh;
+    width: 3vh;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+  }
+  
+  #toggleSwitch input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  #toggleSwitch input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  #toggleSwitch input:checked + .slider:before {
+    transform: translateX(3vh);
+  }
+  
+  /* 토글 관련 스타일 */
+
+#iframeContainer {
+    z-index: 5;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1000px;
+}
+
+.row {
+    display: flex;
+    /* height: 400px; */
+    height: 40vh;
+    margin-top: 1vh;
+}
+
+.innerIframe {
+    border: none;
+    position: relative;
+    width: 40%;
+    height: 100%;
+    display: block;
+    border: none;
+    height: 50vh;
+    width: 42vw;
+}
+
+@keyframes wall{
+    0% {background-color: #a3a3a3; transform: scale(1.0);}
+    50% {background-color: #696969; transform: scale(1.0);}
+    100% {background-color: #333333; transform: scale(1.0);}
+}
+@keyframes visited{
+    0% {background-color: #5c5eb8; transform: scale(.3); border-radius: 10px; background-color: #FFFF00;}
+    25% {background-color: #3c88f1; transform: scale(.5); border-radius: 10px}
+    50% {background-color: #387dd8; transform: scale(0.7); border-radius: 10px}
+    75% {background-color: #1351a3; transform: scale(0.9);}
+    100% {background-color: #1537b4; transform: scale(1.0);}
+
+}
+@keyframes path{
+    0% {background-color: #a5f1a5; transform: scale(.4); border-radius: 10px}
+    50% {background-color: #059205; transform: scale(0.8); border-radius: 10px;}
+    100% {background-color: #5cb85c; transform: scale(1.0);}
+}
+@keyframes icons{
+    0% {transform: scale(.3)}
+    50% {transform: scale(0.8)}
+    100% {transform: scale(1.)}
+}
+
+p {
+    position: relative;
+    top: 0;
+    left: 0;
+    font-family: 'Pretendard', sans-serif;
+    margin: 0;
+    font-weight: bold;
+    padding-left: 1vw;
+}

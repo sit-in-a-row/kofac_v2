@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>이미지 표시 예시</title>
+    <script src="tfjs.js"></script>
+    <script src="mobilenet.js"></script>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    
+</head>
+<body>
+    <div id="ImgsContainer">
+        <div class="imgContainer" id="trainImg">
+            <div class="imgContainerHeader">
+              <p>학습시킬 이미지</p>
+              <div style="display: flex; gap: 0.5vw;">
+                <button class="ImgBtn" id="trainImg1">샘플 이미지 1</button>
+                <button class="ImgBtn" id="trainImg2">샘플 이미지 2</button>
+                <button class="ImgBtn" id="trainImg3">샘플 이미지 3</button>
+              </div>
+            </div>
+            <div class="imgDisplay" id="trainImgDisplay"></div>
+
+            <label for="trainImgInput" class="custom-button">파일 선택</label>
+            <input type="file" id="trainImgInput" accept="image/*" class="custom-file-input">
+        </div>
+
+        <div class="imgContainer" id="testImg">
+          <div class="imgContainerHeader">
+            <p>분류할 이미지</p>
+            <div style="display: flex; gap: 0.5vw;">
+              <button class="ImgBtn" id="testImg1">샘플 이미지 1</button>
+              <button class="ImgBtn" id="testImg2">샘플 이미지 2</button>
+              <button class="ImgBtn" id="testImg3">샘플 이미지 3</button>
+            </div>
+          </div>
+            <div class="imgDisplay" id="testImgDisplay"></div>
+            <div style="display: flex;">
+                <label for="testImgInput" class="custom-button">파일 선택</label>
+                <input type="file" id="testImgInput" accept="image/*" class="custom-file-input">
+            </div>
+        </div>
+    </div>
+
+    <div id="btnContainer">
+        <div style="display: flex;">
+            <select id="imageClassification">
+                <option value="traditional">전통적인 이미지 분류</option>
+                <option value="machineLearning">머신러닝을 활용한 이미지 분류</option>
+            </select>
+            <button id="algoInfo">?</button>
+        </div>
+        <button id="submit">분류하기</button>
+        <span id="imgInfo">.png, .jpg 파일을 권장합니다. <br> 5MB 이하의 이미지만 업로드해주세요.</span>
+    </div>
+
+    <img id="resultImage" src="" style="display: none;">
+    <img id="classifyingImage" src="imgs/classifying.png" style="display: none;">
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+          <span class="close-button" id="closeModal">&times;</span>
+          <h2>전통적인 이미지 분류</h2>
+          <span>전통적인 알고리즘은 이미지를 픽셀값을 기반으로 분석하는 방법입니다. 
+            <br>주로 색상, 형태, 텍스처 등의 특징을 사용하여 이미지를 분류합니다. 
+            <br>본 실습에서는 이미지의 평균 색상을 비교하여 이미지 유사성을 확인합니다.
+          </span>
+          <h2>머신러닝을 활용한 이미지 분류</h2>
+          <span>머신러닝 알고리즘은 딥러닝 모델을 사용하여 이미지를 분석합니다.
+            <br>훈련된 모델은 이미지 내의 다양한 특징과 패턴을 학습하며, 입력된 이미지를 분류합니다. 
+            <br>본 실습은 MobileNet을 활용하여 이미지 내의 다양한 개체 및 클래스를 인식하고 분류합니다. 
+          </span>
+          <h2> </h2>
+          <span>
+            이 두 알고리즘은 이미지 분류 작업을 다루는데 사용됩니다.
+            <br> 전통적인 알고리즘은 단순한 이미지 비교에 사용되고, 
+            <br>머신러닝 알고리즘은 더 복잡하고 정확한 이미지 분류에 활용됩니다.
+          </span>
+        </div>
+      </div>
+
+      <img id="tip_1" class="overlay-tip" src="./imgs/tip_1.png" alt="Tip" onclick="fadeOutTip('tip_1')">
+      <img id="tip_2" class="overlay-tip" src="./imgs/tip_2.png" alt="Tip" onclick="fadeOutTip('tip_2')">
+      <img id="tip_3" class="overlay-tip" src="./imgs/tip_3.png" alt="Tip" onclick="fadeOutTip('tip_3')">
+      <img id="tip_4" class="overlay-tip" src="./imgs/tip_4.png" alt="Tip" onclick="fadeOutTip('tip_4')">
+      
+</body>
+<script src="script.js"></script>
+<script src="slideshow.js"></script>
+</html>

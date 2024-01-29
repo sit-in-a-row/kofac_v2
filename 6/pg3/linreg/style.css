@@ -1,0 +1,162 @@
+body {
+  width: 90%;
+  height: 90%;
+  margin: 0 auto;
+  overflow: hidden;
+  background-color: #20232C;
+}
+
+#slideshow-container {
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  width: 90%;
+  margin: 0 auto;
+  border-radius: 12px;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: inline-block;
+  margin: auto;
+  border-radius: 0px;
+  vertical-align: middle;
+}
+
+#overlay {
+  position: absolute;
+  left: 60%;
+  top: 0%;
+  transform: translate(-10%, 50%);
+  width: 35%;
+  height: 35%;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+}
+
+#overlay-img {
+  max-width: 100%;
+  height: auto;
+}
+
+#linreg-tip {
+  position: absolute;
+  width: 40%;
+  height: auto;
+  bottom: 15%;
+  right: 25%;
+  opacity: 0;
+  transform: translate(50%, 50%);
+  transition: opacity 1s ease-in-out;
+}
+
+#iframe-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -45%);
+  width: 90%;
+  height: 75%;
+  display: none;
+  border-radius: 12px;
+}
+
+#iframe-content {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 12px;
+}
+
+.slide-button {
+  position: fixed;
+  bottom: 10px;
+  width: 80px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: 'Pretendard', sans-serif;
+  font-weight: bold;
+}
+
+#prev-btn {
+  left: 50%;
+  transform: translateX(-350px);
+}
+
+#next-btn {
+  right: 50%;
+  transform: translateX(350px);
+}
+
+.quiz-btn {
+  position: absolute;
+  transform: translateY(-50%);
+  width: 500px;
+  height: 90px;
+  opacity: 0;
+}
+
+#quiz-btn-1 {
+  left: 50%;
+  top: 40%;
+  transform: translateX(-50%);
+}
+
+#quiz-btn-2 {
+  left: 50%;
+  top: 51.6%;
+  transform: translateX(-50%);
+}
+
+#quiz-btn-3 {
+  left: 50%;
+  top: 63.2%;
+  transform: translateX(-50%);
+}
+
+#quiz-btn-4 {
+  left: 50%;
+  top: 74.8%;
+  transform: translateX(-50%);
+}
+
+#bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #384051;
+  padding: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#bottom-bar button {
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: 'Pretendard', sans-serif;
+  font-weight: bold;
+}
+
+#bottom-bar button:hover {
+  background-color: #2980b9;
+}
+
+@media screen and (max-width: 600px) {
+  #overlay {
+    width: 80%;
+    height: 80%;
+    right: 5%;
+  }
+}

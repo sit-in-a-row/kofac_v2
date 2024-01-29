@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>8-Puzzle Solver</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+
+</head>
+
+<body>
+    <div id="visualization"></div>
+
+
+
+    <div id="uiContainer">
+
+        <div id="board">
+            <div id="board-item-1" class="board-item">1</div>
+            <div id="board-item-2" class="board-item">2</div>
+            <div id="board-item-3" class="board-item">3</div>
+            <div id="board-item-4" class="board-item">4</div>
+            <div id="board-item-5" class="board-item">5</div>
+            <div id="board-item-6" class="board-item">6</div>
+            <div id="board-item-7" class="board-item">7</div>
+            <div id="board-item-8" class="board-item">8</div>
+        </div>
+
+        <div id="controls">
+            <div class="heading">퍼즐 설정하기</div>
+            <div class="content">
+                <button class = btn id="randomize">퍼즐 섞기</button>
+                <button class = btn id="customInput" style="display: none;">커스텀 퍼즐 만들기</button>
+            </div>
+
+            <div class="heading">탐색 설정하기</div>
+            <div class="content">
+                <!-- <label id="algoTitle">알고리즘 설정하기</label> -->
+                <select class = algoSelect id="searchType">
+                    <option class = algoSelect value="breadthFirst">너비 우선 탐색</option>
+                    <!-- <option value="uniformCost">Uniform-Cost</option> -->
+                    <option class = algoSelect value="depthFirst">깊이 우선 탐색</option>
+                    <!-- <option value="iterativeDeepening">Iterative-Deepening</option> -->
+                    <option class = algoSelect value="greedyBest" selected>탐욕적 최상 우선 탐색</option>
+                    <option class = algoSelect value="aStar">A* 탐색</option>
+                </select>
+
+                <button class = btn id="searchStep">한 단계씩 탐색하기</button>
+                <button class = btn id="search">탐색하기</button>
+                <button class = btn id="searchStop" style="display: none;">중지하기</button>
+
+                <label style="display: none;">Iteration Limit</label>
+                <input style="display: none;" type="number" id="iterationLimit" value="10000">
+
+                <label style="display: none;">Depth Limit</label>
+                <input style="display: none;" type="number" id="depthLimit" value="0">
+
+                <label style="display: none;">
+                    <input type="checkbox" id="visualizationCheck" checked>
+                    Visualization
+                </label>
+
+                <label style="display: none;">
+                    <input type="checkbox" id="expandedNodeCheck">
+                    Early check optimization
+                </label>
+
+            </div>
+
+            <div id="resultHeading" class="heading">탐색 결과</div>
+            <div id="searchResult" class="content"></div>
+        </div>
+        <img id="tip_1" class="overlay-tip" src="./imgs/tip_1.png" alt="Tip" onclick="fadeOutTip('tip_1')">
+        <img id="tip_2" class="overlay-tip" src="./imgs/tip_2.png" alt="Tip" onclick="fadeOutTip('tip_2')">
+        <img id="tip_3" class="overlay-tip" src="./imgs/tip_3.png" alt="Tip" onclick="fadeOutTip('tip_3')">
+        <img id="tip_4" class="overlay-tip" src="./imgs/tip_4.png" alt="Tip" onclick="fadeOutTip('tip_4')">
+        <img id="tip_5" class="overlay-tip" src="./imgs/tip_5.png" alt="Tip" onclick="fadeOutTip('tip_5')">
+    </div>
+
+    <script src="puzzle.js"></script>
+    <script src="slideshow.js"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #20232C;
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+}
+
+#img3 {
+    border-radius: 12px;
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    display: block;
+}
+
+iframe {
+    position: absolute;
+    top: 63.5vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    width: 1500px; 
+    height: 850px; 
+    border: none;
+    border-radius: 12px;
+    z-index: 1;
+  }

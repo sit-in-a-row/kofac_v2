@@ -1,0 +1,61 @@
+/* 툴팁 슬라이드쇼 */
+.overlay-tip {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  width: auto;
+  height: 15vh;
+  margin: 10px; 
+  opacity: 0; 
+  animation: fadeIn 1s ease-out forwards; 
+  cursor: pointer; 
+  z-index: 2;
+}
+
+#tip_1 {
+  position: absolute;
+  bottom: 34%;
+  left: 21%;
+}
+
+#tip_2 {
+  position: absolute;
+  top: 37%;
+  left: 0%;
+}
+
+#tip_3 {
+  position: absolute;
+  top: 23%;
+  left: 0;
+}
+
+#tip_4 {
+  position: absolute;
+  top: 23%;
+  left: 0;
+}
+
+#tip_5 {
+  position: absolute;
+  top: 16%;
+  right: 7%;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0; 
+  }
+  to {
+      opacity: 1; 
+  }
+}
+
+@keyframes fadeOut {
+  from {
+      opacity: 1; 
+  }
+  to {
+      opacity: 0; 
+  }
+}

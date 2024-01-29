@@ -1,0 +1,438 @@
+/**
+ * Copyright 2018 Google LLC. All Rights Reserved.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * =============================================================================
+ */
+
+* {
+  font-family: 'Pretendard', sans-serif;
+}
+
+html, body {
+  background: #000000;
+  margin: 0;
+  padding: 0;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+button:focus {
+  outline: 0;
+}
+h3 {
+  font-family: 'Pretendard', sans-serif;
+  color: white;
+  width: max-content;
+  margin-bottom: 0;
+  font-weight: 600;
+}
+
+#globalContainer {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  gap: 10vw;
+}
+
+/** Loading message. */
+#status {
+  color: #f8f8f8;
+  font-weight: 300;
+  margin: 12px 0;
+  text-align: center;
+}
+
+/* Rules for the pacman game. */
+#pacman-container {
+  background: black;
+  padding: 25px 0 40px;
+  height: 45vh;
+  width: 50vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative; 
+}
+
+#logo {
+  background: url('https://storage.googleapis.com/tfjs-examples/assets/webcam-transfer-learning/bck.png');
+  background-repeat: no-repeat;
+  background-position-y: -5px;
+  margin: 0;
+  /* margin-left: 3vw; */
+  position: relative;
+  transform: scale(1.2);
+  /* width: 554px; */
+  width: 30vw;
+  height: 20vh;
+}
+#logo #pcm-c {
+  border-top: none;
+  margin: 0;
+  /* margin-left: 3vw; */
+  position: relative;
+  top: 20px;
+}
+#logo-l {
+  background: #990;
+  display: none;
+  height: 2px;
+  left: 177px;
+  overflow: hidden;
+  position: absolute;
+  top: 157px;
+  width: 200px;
+}
+#logo-b{
+  background: #ff0;
+  height: 8px;
+  left: 0;
+  position: absolute;
+  width: 0;
+}
+
+/** Controls. **/
+.controller-panels {
+  display: flex;
+  flex-direction: column;
+  margin: 9px auto 0;
+  gap: 0vh;
+  align-items: center;
+}
+.panel {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-shrink: 0;
+}
+.panel:first-child {
+  /* border-right: 1px dashed #565656; */
+  padding: 0 22px 0 13px;
+  width: 396px;
+}
+.panel:last-child {
+  padding: 0 9px 0 22px;
+  width: 353px;
+}
+.panel-row {
+  display: flex;
+  flex-direction: row;
+}
+.panel-cell {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 0;
+  justify-content: center;
+  position: relative;
+}
+.panel-cell-fill {
+  flex-grow: 1;
+}
+.panel-cell p {
+  color: #8b8b8b;
+  font-size: 10px;
+  margin: 10px;
+  margin-bottom: 0;
+  margin-top: 0;
+  text-align: center;
+}
+.controller-panels button {
+  background: none;
+  border: none;
+  box-sizing: border-box;
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+}
+#train-status {
+  width: 10vw;
+}
+
+/** Training panel. **/
+.big-buttons {
+  justify-content: space-between;
+}
+.big-buttons button {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+
+}
+.big-buttons button span {
+  display: flex;
+  flex-direction: column;
+  background-color: #2D82FA;
+  justify-content: center;
+  color: white;
+  border-radius: 10px;
+  font-size: 18px;
+  height: 5vh;
+  margin: 10px;
+  width: 10vw;
+}
+.big-buttons button span:hover {
+  background-color: white;
+  color: #2D82FA;
+}
+.params-webcam-row {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 35px;
+}
+.webcam-box-outer {
+  background: black;
+  border: 1px solid #585858;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 9px;
+}
+.webcam-box-inner {
+  border: 1px solid #585858;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  width: 160px;
+}
+#webcam {
+  height: 160px;
+  transform: scaleX(-1);
+}
+.hyper-params {
+  display: flex;
+  flex-direction: row;
+}
+#hyper-param-column {
+  margin-right: 30px;
+}
+.dropdown {
+  flex-direction: column;
+  width: 110px;
+  margin-bottom: 10px;
+}
+.dropdown label {
+  color: #777;
+  font-size: 18px;
+  display: block;
+  font-weight: 300;
+  line-height: 1;
+  width: 7vw;
+}
+.dropdown .select {
+  position: relative;
+}
+.dropdown .select select {
+  /* -webkit-appearance: none;
+  -moz-appearance: none; */
+  background: none;
+  border: none;
+  border-bottom: solid 1px #313131;
+  border-radius: 0;
+  color: #c9c9c9;
+  display: block;
+  font-size: 15px;
+  outline: none;
+  padding: 6px 0;
+  width: 100%;
+}
+.dropdown .select::after {
+  /* content: "arrow_drop_down"; */
+  color: #999;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  position: absolute;
+  right: 0;
+  top: 6px;
+  pointer-events: none;
+}
+
+/** Joystick panel. **/
+.joystick-panel {
+  margin-top: 13px;
+}
+.panel-cell .help-text {
+  font-size: 10px;
+  font-style: italic;
+  left: 0;
+  line-height: 1.1;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  top: 0;
+  position: absolute;
+}
+.panel-row-top .panel-cell-left {
+  /* background: url("./images/pointer.svg"); */
+  background-repeat: no-repeat;
+  background-size: 38%;
+  background-position: 98% 46%;
+}
+.panel-row-middle .panel-cell {
+  height: 132px;
+}
+.thumb-box {
+  /* display: inline-block; */
+  display: flex;
+  align-items: center;
+}
+.panel-row-middle .thumb-box {
+  margin-top: 18px;
+}
+.thumb-box-outer {
+  background: black;
+  border: 1px solid #585858;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 9px;
+  position: relative;
+  transition: box-shadow 0.3s;
+}
+[data-active="up"] .panel-row-top .thumb-box-outer,
+[data-active="down"] .panel-row-bottom .thumb-box-outer,
+[data-active="left"] .panel-cell-left .thumb-box-outer,
+[data-active="right"] .panel-cell-right .thumb-box-outer {
+  box-shadow: 0 0 4px 4px #2D82FA;
+}
+.thumb-box-inner {
+  border: 1px solid #585858;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  width: 66px;
+}
+.thumb {
+  height: 66px;
+  transform: scaleX(-1);
+}
+.thumb-box-outer .record-button {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.thumb-box-outer .record-button span {
+  background: #111;
+  border: 1px solid #585858;
+  border-radius: 3px;
+  bottom: 9px;
+  color: #f8f8f8;
+  display: block;
+  font-size: 8px;
+  left: 9px;
+  position: absolute;
+  right: 9px;
+  opacity: 0.5;
+}
+
+/** Footer. **/
+#copyright {
+  color: #f8f8f8;
+  font-weight: 300;
+  margin: 12px 0;
+  text-align: center;
+}
+
+#no-webcam {
+  display: none;
+  text-align: center;
+  font-size: 30px;
+  color: white;
+  padding: 30px;
+  line-height: 30px;
+}
+
+/* 툴팁 슬라이드쇼 */
+.overlay-tip {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  width: auto;
+  height: 15vh;
+  margin: 10px; 
+  opacity: 0; 
+  animation: fadeIn 1s ease-out forwards; 
+  cursor: pointer; 
+  z-index: 2;
+}
+
+#tip_1 {
+  position: absolute;
+  bottom: 34%;
+  left: 21%;
+}
+
+#tip_2 {
+  position: absolute;
+  top: 37%;
+  left: 0%;
+}
+
+#tip_3 {
+  position: absolute;
+  top: 23%;
+  left: 0;
+}
+
+#tip_4 {
+  position: absolute;
+  top: 23%;
+  left: 0;
+}
+
+#tip_5 {
+  position: absolute;
+  top: 16%;
+  right: 7%;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0; 
+  }
+  to {
+      opacity: 1; 
+  }
+}
+
+@keyframes fadeOut {
+  from {
+      opacity: 1; 
+  }
+  to {
+      opacity: 0; 
+  }
+}
+

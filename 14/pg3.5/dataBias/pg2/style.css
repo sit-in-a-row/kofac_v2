@@ -1,0 +1,206 @@
+* {
+	font-family: 'Pretendard', sans-serif;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+	overflow-x: hidden;
+	margin-top: 1vh;
+}
+
+.learning-feature {
+    width: 1500px;
+    text-align: left;
+	color: #000;
+	/* font-size: 32px; */
+	font-size: 3vh;
+	font-style: normal;
+	font-weight: 800;
+	line-height: 44px; 
+	margin : 73px 0 24px 70px;
+}
+
+#container {
+    /* text-align: center;
+	max-width: 1810px;
+	width: 100vw;
+	min-width: 1400px; */
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+}
+
+#slider-container {
+	width: 100vw;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+	overflow: hidden;
+}
+
+#slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 4500px; /* 3개의 슬라이드 너비의 합 */
+	max-width: 5430px;
+}
+
+.slide {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100vw; /* 개별 슬라이드 너비 */
+	max-width: 1810px;
+    height: 350px;
+    justify-content: center;
+    align-content: center;
+	background: #E1E1E8;
+	border-radius: 16px;
+	margin-left: 2vw;
+	margin-right: 2vw;
+}
+
+.slide button {
+    width: 160px;
+    height: 160px;
+    position: relative;
+    flex: 0 0 auto;
+	border: none;
+	border-radius: 8px;
+	align-items: center;
+	justify-content: center;
+    display: flex;
+	cursor: pointer;
+}
+
+
+.slide button.selected::after {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(45, 130, 250, 0.9);
+	opacity: 0.5;
+	border-radius: 8px;
+	width: 160px;
+    height: 160px;
+}
+
+#indicators {
+    text-align: center;
+	/* margin: 40px 0 60px 0; */
+	margin: 3vh;
+}
+
+.indicator {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: grey;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.indicator.active {
+  background-color: #002073;
+}
+
+#next {
+    /* border: none;
+    cursor: pointer;
+	display: inline-flex;
+	padding: 30px 42px;
+	justify-content: center;
+	align-items: center;
+	border-radius: 16px;
+	background: var(--blue1, #2D82FA);
+	color: var(--white, #FFF);
+	text-align: center;
+	font-size: 36px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 42px;
+	letter-spacing: -1.08px; */
+	width: max-content;
+	height: max-content;
+	font-size: 3vh;
+	background-color: #2D82FA;
+	color: white;
+	border-radius: 10px;
+	border: none;
+	padding: 2vh;
+}
+
+#next:hover {
+	background-color: #002073;
+}
+
+/* 툴팁 슬라이드쇼 */
+.overlay-tip {
+	position: absolute;
+	bottom: 5%;
+	right: 5%;
+	width: auto;
+	height: 15vh;
+	margin: 10px; 
+	opacity: 0; 
+	animation: fadeIn 1s ease-out forwards; 
+	cursor: pointer; 
+	z-index: 2;
+  }
+  
+  #tip_1 {
+	position: absolute;
+	bottom: 34%;
+	left: 21%;
+  }
+  
+  #tip_2 {
+	position: absolute;
+	top: 37%;
+	left: 0%;
+  }
+  
+  #tip_3 {
+	position: absolute;
+	top: 23%;
+	left: 0;
+  }
+  
+  #tip_4 {
+	position: absolute;
+	top: 23%;
+	left: 0;
+  }
+  
+  #tip_5 {
+	position: absolute;
+	top: 16%;
+	right: 7%;
+  }
+  
+  @keyframes fadeIn {
+	from {
+		opacity: 0; 
+	}
+	to {
+		opacity: 1; 
+	}
+  }
+  
+  @keyframes fadeOut {
+	from {
+		opacity: 1; 
+	}
+	to {
+		opacity: 0; 
+	}
+  }

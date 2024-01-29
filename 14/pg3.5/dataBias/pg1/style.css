@@ -1,0 +1,145 @@
+* {
+    font-family: 'Pretendard', sans-serif;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+	/* font-family: Pretendard; */
+	overflow-x: hidden;
+    margin-top: 4vh;
+}
+
+#container {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+    position: absolute;
+    top: 40vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+}
+
+#textContainer {
+    width: max-content;
+    margin-left: 3vw;
+    gap: 1vh;
+}
+
+#textContainer h1 {
+    font-size: 7vh;
+    margin: 0;
+    margin-bottom: 2vh;
+}
+
+#textContainer p {
+    font-size: 3vh;
+    margin: 0;
+    margin-bottom: 2vh;
+}
+
+#centerContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#title {
+    font-size: 5vh;
+    font-weight: bold;
+    margin: 0;
+    margin-top: 3vh;
+}
+
+#robot-image {
+	display: flex;
+	/* width: 511px;
+	height: 511px; */
+	justify-content: center;
+	align-items: center;
+	flex-shrink: 0;
+	/* margin: 45px 169px 0 169px; */
+    width: 30vw;
+    height: 30vw;
+}
+
+.navigation-button {
+    font-size: 2.5vh;
+    border: none;
+    border-radius: 10px;
+    background-color: #2d82fa;
+    color: white;
+    width: max-content;
+    height: max-content;
+    padding: 1vh;
+}
+
+.navigation-button:hover {
+	background-color: #002073;
+}
+
+/* 툴팁 슬라이드쇼 */
+.overlay-tip {
+    position: absolute;
+    bottom: 5%;
+    right: 5%;
+    width: auto;
+    height: 15vh;
+    margin: 10px; 
+    opacity: 0; 
+    animation: fadeIn 1s ease-out forwards; 
+    cursor: pointer; 
+    z-index: 2;
+  }
+  
+  #tip_1 {
+    position: absolute;
+    bottom: 65%;
+    left: 49vw;
+    transform: translateX(-50%);
+  }
+  
+  #tip_2 {
+    position: absolute;
+    top: 37%;
+    left: 0%;
+  }
+  
+  #tip_3 {
+    position: absolute;
+    top: 23%;
+    left: 0;
+  }
+  
+  #tip_4 {
+    position: absolute;
+    top: 23%;
+    left: 0;
+  }
+  
+  #tip_5 {
+    position: absolute;
+    top: 16%;
+    right: 7%;
+  }
+  
+  @keyframes fadeIn {
+    from {
+        opacity: 0; 
+    }
+    to {
+        opacity: 1; 
+    }
+  }
+  
+  @keyframes fadeOut {
+    from {
+        opacity: 1; 
+    }
+    to {
+        opacity: 0; 
+    }
+  }

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
+    <script type="text/javascript" src="decision-tree.js"></script>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+</head>
+
+<body onLoad="init()">
+    <div style="display: flex;">
+        <div id="uiContainer">
+            
+            <div class="canvasContainer">
+                <h2>데이터 현재 상태</h2>
+                <canvas id="currentCanvas" willReadFrequently="true"></canvas>
+            </div>
+            <div id="btnContainer" style="display: flex;">
+                <button id="genDataBtn">랜덤 데이터 생성</button>
+                <button id="clearBtn">초기화</button>
+            </div>
+            <div class="canvasContainer">
+                <h2>목표 상태</h2>
+                <canvas id="goalStatus" willReadFrequently="true"></canvas>
+            </div>
+
+        </div>
+
+        <div id="displayTree" style="display: none;"></div>
+
+        <div id="columnContainer" style="display: flex;">
+
+            <div class="column" id="column1">
+                <div id="treeContainer">
+                    <div class="tree" id="treeLeaf">
+                        <p>규칙1</p>
+                        <div id="inputBar" style="display: flex;">
+                            <select id="coorSelect">
+                                <option value="selectX">X</option>
+                                <option value="selectY">Y</option>
+                            </select>
+                            가
+                            <input type="text" id="textInput" />
+                            보다
+                            <select id="conditionSelect1-1">
+                                <option value="selectGreater">크다</option>
+                                <!-- <option value="selectGreaterOrEqual">크거나 같다</option> -->
+                                <option value="selectSmaller">작다</option>
+                                <!-- <option value="selectSmallerOrEqual">작거나 같다</option> -->
+                            </select>
+                        </div>
+                        <button class="confirmBtn" id="confirm">입력</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="column" id="column2" style="display: flex; flex-direction: column;">
+                <div id="treeContainer">
+                    <div class="tree_true" id="treeLeaf2-1">
+                        <!-- <p>규칙2-1 [규칙1이 거짓일 때]</p> -->
+                        <p>규칙2-1</p>
+                        <div id="inputBar2-1" style="display: flex;">
+                            <select id="coorSelect2-1">
+                                <option value="selectX">X</option>
+                                <option value="selectY">Y</option>
+                            </select>
+                            가
+                            <input type="text" id="textInput2-1" />
+                            보다
+                            <select id="conditionSelect2-1">
+                                <option value="selectGreater">크다</option>
+                                <!-- <option value="selectGreaterOrEqual">크거나 같다</option> -->
+                                <option value="selectSmaller">작다</option>
+                                <!-- <option value="selectSmallerOrEqual">작거나 같다</option> -->
+                            </select>
+                        </div>
+                        <button class="confirmBtn" id="confirm2-1">입력</button>
+                    </div>
+                </div>
+                <div id="treeContainer">
+                    <div class="tree_false" id="treeLeaf2-2">
+                        <!-- <p>규칙2-2 [규칙1이 참일 때]</p> -->
+                        <p>규칙2-2</p>
+                        <div id="inputBar2-2" style="display: flex;">
+                            <select id="coorSelect2-2">
+                                <option value="selectX">X</option>
+                                <option value="selectY">Y</option>
+                            </select>
+                            가
+                            <input type="text" id="textInput2-2" />
+                            보다
+                            <select id="conditionSelect2-2">
+                                <option value="selectGreater">크다</option>
+                                <!-- <option value="selectGreaterOrEqual">크거나 같다</option> -->
+                                <option value="selectSmaller">작다</option>
+                                <!-- <option value="selectSmallerOrEqual">작거나 같다</option> -->
+                            </select>
+                        </div>
+                        <button class="confirmBtn" id="confirm2-2">입력</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column" id="column3" style="display: flex; flex-direction: column;">
+                <div id="treeContainer">
+                    <div class="tree_true" id="treeLeaf3-1">
+                        <!-- <p>규칙3-1 [조건2-1이 거짓일 때]</p> -->
+                        <p>규칙3-1 </p>
+                        <div id="inputBar3-1" style="display: flex;">
+                            <select id="coorSelect3-1">
+                                <option value="selectX">X</option>
+                                <option value="selectY">Y</option>
+                            </select>
+                            가
+                            <input type="text" id="textInput3-1" />
+                            보다
+                            <select id="conditionSelect3-1">
+                                <option value="selectGreater">크다</option>
+                                <!-- <option value="selectGreaterOrEqual">크거나 같다</option> -->
+                                <option value="selectSmaller">작다</option>
+                                <!-- <option value="selectSmallerOrEqual">작거나 같다</option> -->
+                            </select>
+                        </div>
+                        <button class="confirmBtn" id="confirm3-1">입력</button>
+                    </div>
+                </div>
+                <div id="treeContainer">
+                    <div class="tree_false" id="treeLeaf3-2">
+                        <!-- <p>규칙3-2 [조건2-1이 참일 때]</p> -->
+                        <p>규칙3-2</p>
+                        <div id="inputBar3-2" style="display: flex;">
+                            <select id="coorSelect3-2">
+                                <option value="selectX">X</option>
+                                <option value="selectY">Y</option>
+                            </select>
+                            가
+                            <input type="text" id="textInput3-2" />
+                            보다
+                            <select id="conditionSelect3-2">
+                                <option value="selectGreater">크다</option>
+                                <!-- <option value="selectGreaterOrEqual">크거나 같다</option> -->
+                                <option value="selectSmaller">작다</option>
+                                <!-- <option value="selectSmallerOrEqual">작거나 같다</option> -->
+                            </select>
+                        </div>
+                        <button class="confirmBtn" id="confirm3-2">입력</button>
+                    </div>
+                </div>
+                <div id="treeContainer">
+                    <div class="tree_true" id="treeLeaf3-3">
+                        <!-- <p>규칙3-3 [조건2-2가 거짓일 때]</p> -->
+                        <p>규칙3-3 </p>
+                        <div id="inputBar3-3" style="display: flex;">
+                            <select id="coorSelect3-3">
+                                <option value="selectX">X</option>
+                                <option value="selectY">Y</option>
+                            </select>
+                            가
+                            <input type="text" id="textInput3-3" />
+                            보다
+                            <select id="conditionSelect3-3">
+                                <option value="selectGreater">크다</option>
+                                <!-- <option value="selectGreaterOrEqual">크거나 같다</option> -->
+                                <option value="selectSmaller">작다</option>
+                                <!-- <option value="selectSmallerOrEqual">작거나 같다</option> -->
+                            </select>
+                        </div>
+                        <button class="confirmBtn" id="confirm3-3">입력</button>
+                    </div>
+                </div>
+                <div id="treeContainer">
+                    <div class="tree_false" id="treeLeaf3-4">
+                        <!-- <p>규칙3-4 [조건2-2가 참일 때]</p> -->
+                        <p>규칙3-4</p>
+                        <div id="inputBar3-4" style="display: flex;">
+                            <select id="coorSelect3-4">
+                                <option value="selectX">X</option>
+                                <option value="selectY">Y</option>
+                            </select>
+                            가
+                            <input type="text" id="textInput3-4" />
+                            보다
+                            <select id="conditionSelect3-4">
+                                <option value="selectGreater">크다</option>
+                                <!-- <option value="selectGreaterOrEqual">크거나 같다</option> -->
+                                <option value="selectSmaller">작다</option>
+                                <!-- <option value="selectSmallerOrEqual">작거나 같다</option> -->
+                            </select>
+                        </div>
+                        <button class="confirmBtn" id="confirm3-4">입력</button>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            
+            </div>
+        </div>
+
+        <div id="notifyCoor">
+
+        </div>
+
+        <img id="tip_1" class="overlay-tip" src="./imgs/tip_1.png" alt="Tip" onclick="fadeOutTip('tip_1')">
+        <img id="tip_2" class="overlay-tip" src="./imgs/tip_2.png" alt="Tip" onclick="fadeOutTip('tip_2')">
+        <img id="tip_3" class="overlay-tip" src="./imgs/tip_3.png" alt="Tip" onclick="fadeOutTip('tip_3')">
+        <img id="tip_4" class="overlay-tip" src="./imgs/tip_4.png" alt="Tip" onclick="fadeOutTip('tip_4')">
+        <img id="tip_5" class="overlay-tip" src="./imgs/tip_5.png" alt="Tip" onclick="fadeOutTip('tip_5')">
+    </div>
+
+    <script type="text/javascript" src="controls.js"></script>
+    <script type="text/javascript" src="slideshow.js"></script>
+    <!-- <script type="text/javascript" src="drawTree.js"></script> -->
+</body>
+</html>

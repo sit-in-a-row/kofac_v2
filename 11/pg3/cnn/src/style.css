@@ -1,0 +1,251 @@
+* {
+      box-sizing: border-box;
+      outline: none;
+      margin: 0;
+      margin-top: 5px;
+      overflow: hidden;
+}
+
+#globalContainer {
+      display: flex;
+      justify-content: center;
+}
+
+#rightContainer {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+}
+
+#leftContainer {
+      margin: 0;
+}
+
+#settingsContainer {
+      display: flex;
+      flex-direction: column;
+}
+
+#load-image-upload-button {
+      width: 15vw;
+      height: 8vh;
+      margin-top: 9vh;
+      font-size: 3vh;
+      background-color: #2D82FA;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-family: 'Pretendard', sans-serif;
+}
+
+#load-image-upload-button:hover {
+      background-color: white;
+      color: #2D82FA;
+}
+
+button {
+      user-select: none;
+}
+
+.mdl-slider__container {
+      margin: 0 !important;
+}
+
+#kernel-weight-label {
+      margin: 0;
+      width: max-content;
+}
+
+#kernel-weight {
+      position: absolute;
+      /* bottom: -10%; */
+      bottom: 50vh;
+      background-color: white;
+      color: white;
+      border: none;
+      opacity: 0;
+}
+
+header {
+      height: 10%;
+      padding: 1% 2%;
+      background-color: #EEE;
+}
+
+#title {
+      margin-top: 0;
+}
+
+.full-width {
+      width: 100%;
+}
+
+canvas {
+      width: 100%;
+      margin-bottom: 5%;
+      image-rendering: pixelated;
+      transition: 1s all ease;
+}
+
+#rightConSecondRow {
+      display: flex;
+      align-items: center;
+      margin-top: 2vh;
+}
+
+input#load-image-upload {
+      display: none
+}
+
+#settings, #canvases {
+      /* padding: 2%; */
+      width: auto;
+      display: inline-block;
+}
+
+#settings>* {
+      margin-bottom: 4%;
+}
+
+.inline-block {
+      display: inline-block;
+}
+
+#canvases {
+      /* position: absolute; */
+      width: 50vw;
+}
+
+#input-canvas, #output-canvas {
+      width: 50%;
+}
+
+#input-canvas {
+      float: left;
+}
+
+#output-canvas {
+      float: left;
+}
+
+#kernel-vis {
+      width: 35vw;
+      float: left;
+}
+
+#kernel-vis .row {
+      width: 100%;
+      /* margin: 1% 0%; */
+}
+
+#kernel-vis * .block {
+      height: 100%;
+      /* margin: 0% 1%; */
+      padding: 0;
+      transition: all 0.5s ease;
+}
+
+#kernel-vis * {
+      display: inline-block;
+}
+
+#resolution-display {
+      font-size: 15px;
+      margin-left: 5px;
+      display: inline-block;
+}
+
+.container {
+      width: auto;
+      height: 100%;
+}
+
+#resolution {
+      width: 30vw;
+      margin-right: 50px;
+}
+
+#filter-select {
+      width: max-content;
+      height: 5vh;
+}
+
+h4 {
+      margin: 0;
+      margin-bottom: 6px;
+}
+
+#btnContainer {
+      display: flex;
+      flex-direction: column;
+      gap: 1vh;
+}
+
+#imgInfo {
+      text-align: center;
+      color: #5f5f5f;
+      margin: 0;
+}
+
+/* 툴팁 슬라이드쇼 */
+.overlay-tip {
+      position: absolute;
+      bottom: 5%;
+      right: 5%;
+      width: auto;
+      height: 15vh;
+      margin: 10px; 
+      opacity: 0; 
+      animation: fadeIn 1s ease-out forwards; 
+      cursor: pointer; 
+      z-index: 2;
+}
+
+#tip_1 {
+      position: absolute;
+      bottom: 16%;
+      right: 10%;
+}
+
+#tip_2 {
+      position: absolute;
+      bottom: 35%;
+      left: 44%;
+}
+
+#tip_3 {
+      position: absolute;
+      bottom: 35%;
+      left: 44%;
+}
+
+#tip_4 {
+      position: absolute;
+      top: 70%;
+      left: 4.5%;
+}
+
+#tip_5 {
+      position: fixed; 
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); 
+}
+
+@keyframes fadeIn {
+      from {
+            opacity: 0; 
+      }
+      to {
+            opacity: 1; 
+      }
+}
+
+@keyframes fadeOut {
+      from {
+            opacity: 1; 
+      }
+      to {
+            opacity: 0; 
+      }
+}
